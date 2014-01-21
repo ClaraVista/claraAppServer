@@ -1,0 +1,69 @@
+@(title: String)(curvePoints: Array[(Double, Double)])(dist1: List[DataPoint])(dist2: List[DataPoint])
+
+<!--<!DOCTYPE html>-->
+<html>
+<head>
+    <title>@title</title>
+    <link rel="icon" type="image/png" href='@routes.Assets.at("images/favicon.png")'/>
+    <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/chart.css")'/>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Pencentage', 'After Scoring', 'random'],
+             @curvePoints.map { pt =>
+                [@pt._1, @pt._2, @pt._1],
+          }
+        ]);
+
+        var options = {
+            title: 'Lift',
+            curveType: 'function',
+            legend: { position: 'bottom' },
+            vAxis: {title: '% 1s', maxValue: 1.2 },
+            hAxis: {title: '% all digits', maxValue: 1.2 }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('lift_chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['', '1', 'other digit'],
+          @dist1.map { dpt =>
+            [@dpt.feature(0), @dpt.feature(1), null],
+          }
+          @dist2.map { dpt =>
+            [@dpt.feature(0), null, @dpt.feature(1)],
+          }
+        ]);
+
+        var options = {
+          title: '1 vs. All other digits',
+          hAxis: {title: 'intensity'},
+          vAxis: {title: 'symmetry'},
+          pointSize: 2,
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('dist_chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+</head>
+<body>
+
+    <div id="lift_chart_div" class='chart'></div>
+    <div id="dist_chart_div" class='chart'></div>
+
+</body>
+</html>
+

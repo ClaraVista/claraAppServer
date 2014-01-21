@@ -1,0 +1,143 @@
+@(title: String)(curvePoints: Array[(Double, Double)])(dist1: List[DataPoint])(dist2: List[DataPoint])
+
+<!--<!DOCTYPE html>-->
+<html>
+<head>
+    <title>@title</title>
+    <link rel="icon" type="image/png" href='@routes.Assets.at("images/favicon.png")'/>
+    <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/chart.css")'/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript">
+    $(function () {
+        $('#lift_chart_div').highcharts({
+            title: {
+                text: 'Lift',
+                x: -20 //center
+            },
+
+            xAxis: {
+                title: {
+                    text: '% all digits'
+                },
+                max: 1
+            },
+
+            yAxis: {
+                title: {
+                    text: '% 1s'
+                },
+                max: 1
+            },
+
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+
+            plotOptions: {
+                series: {
+                    visible: true
+                }
+            },
+
+            series: [
+                {
+                name: 'random',
+                data: [ [0, 0], [1, 1] ]
+                },
+
+                {
+                name: 'after scoring',
+                data: [ @curvePoints.map { pt =>
+                    [@pt._1, @pt._2], } ]
+                }
+            ]
+        });
+    });
+    </script>
+
+    <script>
+        $(function () {
+        $('#dist_chart_div').highcharts({
+            chart: {
+                type: 'scatter',
+                zoomType: 'xy'
+            },
+            title: {
+                text: '1 versus all other digits'
+            },
+            xAxis: {
+                title: {
+                    enabled: true,
+                    text: 'intensity'
+                },
+                startOnTick: true,
+                endOnTick: true,
+                showLastLabel: true
+            },
+            yAxis: {
+                title: {
+                    text: 'symmetry'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                backgroundColor: '#FFFFFF',
+                borderWidth: 1
+            },
+            plotOptions: {
+                scatter: {
+                    marker: {
+                        radius: 5,
+                        states: {
+                            hover: {
+                                enabled: true,
+                                lineColor: 'rgb(100,100,100)'
+                            }
+                        }
+                    },
+                    states: {
+                        hover: {
+                            marker: {
+                                enabled: false
+                            }
+                        }
+                    },
+                    tooltip: {
+                        headerFormat: '<b>{series.name}</b><br>',
+                        pointFormat: 'intensity: {point.x}, symmetry: {point.y}'
+                    }
+                }
+            },
+            series: [{
+                name: '1',
+                color: 'rgba(223, 83, 83, .5)',
+                data: [@dist1.map { dpt =>
+                    [@dpt.feature(0), @dpt.feature(1)],
+                }]
+            }, {
+                name: 'other digit',
+                color: 'rgba(119, 152, 191, .5)',
+                data: [ @dist2.map { dpt =>
+                    [@dpt.feature(0), @dpt.feature(1)],
+                }]
+            }]
+        });
+    });
+    </script>
+
+</head>
+<body>
+
+<div id="lift_chart_div" class='chart'></div>
+<div id="dist_chart_div" class='chart'></div>
+<!--<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>-->
+
+</body>
+</html>
+
