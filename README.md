@@ -1,5 +1,4 @@
-
-This is your new Play application
+claraAppServer
 =====================================
 
 A clarabox-driven application server
