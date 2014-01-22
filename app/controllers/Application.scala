@@ -3,20 +3,55 @@ package controllers
 import play.api._
 import play.api.mvc._
 import scala.io.Source
+import play.api.data._
+import play.api.data.Forms._
+import models.User
 
 object Application extends Controller {
 
 
+  val userForm = Form(
+    tuple(
+      "login" -> nonEmptyText,
+      "password" -> nonEmptyText,
+      "email" -> text
+    )
+  )
+
+
+  def index = Action {
+    Redirect(routes.Application.login)
+  }
+
+  def login = Action {
+    Ok(views.html.index(User.all(), userForm))
+  }
+
+  def newUser = Action {
+    implicit request =>
+      userForm.bindFromRequest.fold(
+        errors => BadRequest(views.html.index(User.all(), errors)),
+        usr => {
+          User.create(usr._1, usr._2, usr._3)
+          Redirect(routes.Application.login)
+        }
+      )
+  }
+
+
+  def deleteUser(login: String) = Action {
+    User.delete(login)
+    Redirect(routes.Application.login)
+  }
+
+
+  // create chart
+
   def prepareData = {
     val c = curve.lift.result
-//    val c = Array((0d, 0d))
     val dist1 = models.DataPoint.loadData.filter(_.label == 1.0)
     val dist2 = models.DataPoint.loadData.filter(_.label != 1.0)
     (c, dist1, dist2)
-  }
-
-  def index = Action {
-    Ok("Your application is ready!")
   }
 
   def googleChart = Action {
@@ -29,14 +64,16 @@ object Application extends Controller {
     Ok(views.html.highChart("High Chart")(c)(dist1)(dist2))
   }
 
-  def startEC2 = Action {
-    Runtime.getRuntime.exec("/home/coderh/development/scripts/ec2cmd.sh test start")
-    Ok(views.html.index("EC2 cluster is starting..."))
-  }
+// start and stop EC2 instances cluster
+/*
+def startEC2 = Action {
+  Runtime.getRuntime.exec("/home/coderh/development/scripts/ec2cmd.sh test start")
+  Ok("EC2 cluster is starting...")
+}
 
-  def stopEC2 = Action {
-    Runtime.getRuntime.exec("/home/coderh/development/scripts/ec2cmd.sh test stop")
-    Ok(views.html.index("EC2 cluster is stopping..."))
-  }
-
+def stopEC2 = Action {
+  Runtime.getRuntime.exec("/home/coderh/development/scripts/ec2cmd.sh test stop")
+  Ok("EC2 cluster is stopping...")
+}
+//*/
 }

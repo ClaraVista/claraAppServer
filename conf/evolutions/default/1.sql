@@ -2,13 +2,12 @@
 
 # --- !Ups
 
-CREATE TABLE User (
-    id bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE t_user (
     login varchar(255) NOT NULL,
     password varchar(255) NOT NULL,
     email varchar(255) NOT NULL,
     isAdmin boolean NOT NULL,
-    PRIMARY KEY (id)
+    PRIMARY KEY (login)
 );
 
 # --- !Downs

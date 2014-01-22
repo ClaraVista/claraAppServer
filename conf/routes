@@ -4,10 +4,19 @@
 
 # Home page
 GET     /                           controllers.Application.index
+
+# admin
+GET     /login                      controllers.Application.login
+POST    /join                       controllers.Application.newUser
+POST    /users/:id/delete           controllers.Application.deleteUser(id: String)
+
+# chart
 GET     /googlechart                controllers.Application.googleChart
 GET     /highchart                  controllers.Application.highChart
-GET     /ec2/start                  controllers.Application.startEC2
-GET     /ec2/stop                   controllers.Application.stopEC2
+
+# Attention: don't use ec2 concerned route...
+# GET     /ec2/start                  controllers.Application.startEC2
+# GET     /ec2/stop                   controllers.Application.stopEC2
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
