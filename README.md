@@ -1,4 +1,4 @@
 claraAppServer
 =====================================
 
-A clarabox-driven application server
+A front-end server for deloying tasks on clarabox
