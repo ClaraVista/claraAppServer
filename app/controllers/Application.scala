@@ -9,21 +9,19 @@ import models.User
 
 object Application extends Controller {
 
+//  type Fields = (String, String, String, String)
+  case class signUpForm(login: String, password: String, pwdConfirmation: String, email: String)
 
-  val userForm = Form(
-    tuple(
+  val userForm : Form[signUpForm] = Form(
+    mapping(
       "login" -> nonEmptyText,
       "password" -> nonEmptyText,
+      "pwdConfirmation" -> nonEmptyText,
       "email" -> text
-    )
+    )(signUpForm.apply)(signUpForm.unapply)
   )
 
-
   def index = Action {
-    Redirect(routes.Application.login)
-  }
-
-  def login = Action {
     Ok(views.html.index(User.all(), userForm))
   }
 
@@ -31,19 +29,17 @@ object Application extends Controller {
     implicit request =>
       userForm.bindFromRequest.fold(
         errors => BadRequest(views.html.index(User.all(), errors)),
-        usr => {
-          User.create(usr._1, usr._2, usr._3)
-          Redirect(routes.Application.login)
+        fields => {
+          User.create(fields.login, fields.password, fields.email)
+          Redirect(routes.Application.index)
         }
       )
   }
 
-
   def deleteUser(login: String) = Action {
     User.delete(login)
-    Redirect(routes.Application.login)
+    Redirect(routes.Application.index)
   }
-
 
   // create chart
 
@@ -64,16 +60,18 @@ object Application extends Controller {
     Ok(views.html.highChart("High Chart")(c)(dist1)(dist2))
   }
 
-// start and stop EC2 instances cluster
-/*
-def startEC2 = Action {
-  Runtime.getRuntime.exec("/home/coderh/development/scripts/ec2cmd.sh test start")
-  Ok("EC2 cluster is starting...")
-}
+  // start and stop EC2 instances cluster
 
-def stopEC2 = Action {
-  Runtime.getRuntime.exec("/home/coderh/development/scripts/ec2cmd.sh test stop")
-  Ok("EC2 cluster is stopping...")
-}
-//*/
+  /*
+  def startEC2 = Action {
+    Runtime.getRuntime.exec("/home/coderh/development/scripts/ec2cmd.sh test start")
+    Ok("EC2 cluster is starting...")
+  }
+
+  def stopEC2 = Action {
+    Runtime.getRuntime.exec("/home/coderh/development/scripts/ec2cmd.sh test stop")
+    Ok("EC2 cluster is stopping...")
+  }
+  */
+
 }

@@ -5,16 +5,16 @@
 # Home page
 GET     /                           controllers.Application.index
 
-# admin
-GET     /login                      controllers.Application.login
-POST    /join                       controllers.Application.newUser
+# user administration
+GET     /index                      controllers.Application.index
+POST    /user/add                   controllers.Application.newUser
 POST    /users/:id/delete           controllers.Application.deleteUser(id: String)
 
-# chart
+# chart plotting
 GET     /googlechart                controllers.Application.googleChart
 GET     /highchart                  controllers.Application.highChart
 
-# Attention: don't use ec2 concerned route...
+# Attention: don't use ec2 concerned routes...
 # GET     /ec2/start                  controllers.Application.startEC2
 # GET     /ec2/stop                   controllers.Application.stopEC2
 
