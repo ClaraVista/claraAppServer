@@ -14,7 +14,7 @@ POST    /users/:id/delete           controllers.Application.deleteUser(id: Strin
 GET     /googlechart                controllers.Application.googleChart
 GET     /highchart                  controllers.Application.highChart
 
-# Attention: don't use ec2 concerned routes...
+# # supervisor
 # GET     /ec2/start                  controllers.Application.startEC2
 # GET     /ec2/stop                   controllers.Application.stopEC2
 

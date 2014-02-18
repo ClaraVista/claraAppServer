@@ -22,6 +22,7 @@ object Application extends Controller {
   )
 
   def index = Action {
+    //Ok(views.html.indexBis())
     Ok(views.html.index(User.all(), userForm))
   }
 
@@ -64,12 +65,12 @@ object Application extends Controller {
 
   /*
   def startEC2 = Action {
-    Runtime.getRuntime.exec("/home/coderh/development/scripts/ec2cmd.sh test start")
+    Runtime.getRuntime.exec("/home/spark/development/scripts/ec2cmd.sh test start")
     Ok("EC2 cluster is starting...")
   }
 
   def stopEC2 = Action {
-    Runtime.getRuntime.exec("/home/coderh/development/scripts/ec2cmd.sh test stop")
+    Runtime.getRuntime.exec("/home/spark/development/scripts/ec2cmd.sh test stop")
     Ok("EC2 cluster is stopping...")
   }
   */
