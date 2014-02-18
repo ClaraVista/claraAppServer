@@ -13,7 +13,7 @@ import play.api.mvc._
 object FluxController extends Controller {
 
   def displayFlux = Action {
-    Ok(views.html.flux())
+    Ok(views.html.header().+=(views.html.flux()).+=(views.html.footer()))
   }
 
 }

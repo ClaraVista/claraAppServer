@@ -12,8 +12,11 @@
 					<img src='@routes.Assets.at("images/SVG/male18.svg")' alt="image login" class="glossy"/>
 
                     @form(routes.IndexController.checkPassword) {
+                    @*
                     @inputText(userForm("username"), 'placeholder -> "placeholder", 'class="span12")
-			        <input type="text" name="username" placeholder="Username" class="span12"/>
+                    *@
+
+                    <input type="text" name="username" placeholder="Username" class="span12"/>
 						<input type="password" name="password" placeholder="Password" class="span12"/>
 						<input type="submit" name="login" value="Login" class="btn btn-info span12"/>
                       }

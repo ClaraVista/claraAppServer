@@ -1,3 +1,8 @@
+
+@()
+
+@import helper._
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,18 +56,20 @@
                                     </a>
                                 </li-->
 
-                                <li <?php if($pages[$page] == "Flux"): ?>class="active"<?php endif; ?> style="height: auto;">
-                                    <a href="flux.php" class="i_forms">
+                                class="active" style="height: auto;">
+
+                                <li @* <?php if($pages[$page] == "Flux"): ?> *@ class="active" @*<?php endif; ?>*@ style="height: auto;">
+                                    @* <a href="flux.php" class="i_forms"> *@
                                         <span class="tab_label" style="visibility: visible;">Flux</span>
                                         <span class="tab_info" style="visibility: visible;">Flux de données</span>
-                                    </a>
+                                @* </a> *@
                                 </li>
 
-                                <li <?php if($pages[$page] == "Extraction"): ?>class="active"<?php endif; ?> style="height: auto;">
-                                    <a href="extraction.php" class="i_elements tip-right" data-original-title="">
+                                <li @* <?php if($pages[$page] == "Extraction"): ?>class="active"<?php endif; ?> *@ style="height: auto;">
+                                   @* <a href="extraction.php" class="i_elements tip-right" data-original-title=""> *@
                                         <span class="tab_label" style="visibility: visible;">Extraction</span>
                                         <span class="tab_info" style="visibility: visible;">Extraire des données</span>
-                                    </a>
+                                @* </a> *@
                                 </li>
                             </ul>
                         </div><!-- sidebar_navigation end -->

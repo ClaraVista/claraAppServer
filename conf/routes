@@ -12,6 +12,7 @@ POST    /users/:id/delete           controllers.Application.deleteUser(id: Strin
 
 # Affiche les onglets
 GET     /flux                          controllers.FluxController.displayFlux
+POST    /fluxTemp                    controllers.IndexController.checkPassword
 
 # chart plotting
 GET     /googlechart                controllers.Application.googleChart
