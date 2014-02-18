@@ -1,84 +1,30 @@
-@(users: List[User], userForm: Form[Application.signUpForm])
+@()
+
+
 
 @import helper._
 
 @main("ClaraVista") {
 
-<h1>@users.size user(s)</h1>
 
-<ul>
-    @users.map { user =>
-        <li>
-            @user.login<br>
-            @user.password<br>
-            @user.email<br>
-            @user.isAdmin<br>
-            @form(routes.Application.deleteUser(user.login)) {
-                <input type="submit" value="Delete">
-            }
-        </li>
-    }
-</ul>
-
-<h2>Sign Up: </h2>
-
-    @form(routes.Application.newUser) {
-        @inputText(userForm("login"))
-        @inputPassword(userForm("password"), 'onkeyup -> "checkPass(); return false;")
-        @helper.input(userForm("pwdConfirmation")) { (id, name, value, args) =>
-        <div>
-            <input type="password" name="@name" id="@id" onkeyup="checkPass(); return false;">
-            <span id="confirmMessage" class="confirmMessage"></span>
-        </div>
-        }
-        @inputText(userForm("email"))
-        <input id="mySubmit" type="submit" value="Create">
-    }
-
-}
-
-<script>
-
-function checkPass() {
-
-    //Store the password field objects into variables ...
-    var pass1 = document.getElementById('password');
-    var pass2 = document.getElementById('pwdConfirmation');
-    var submitBtn = document.getElementById('mySubmit');
-
-    //Store the Confimation Message Object ...
-    var message = document.getElementById('confirmMessage');
-
-    //Set the colors we will be using ...
-    var goodColor = "#66cc66";
-    var badColor = "#ff6666";
-
-    //Compare the values in the password field
-    //and the confirmation field
-
-    if(pass1.value == pass2.value){
-        //The passwords match.
-        //Set the color to the good color and inform
-        //the user that they have entered the correct password
-
-       // pass2.style.backgroundColor = goodColor;
-        message.style.color = goodColor;
-        message.innerHTML = "Passwords Match!"
-        message.innerHTML = '<img src="/assets/images/tick.png" alt="Passwords Match!">';
-        submitBtn.disabled = false
-    } else {
-        //The passwords do not match.
-        //Set the color to the bad color and
-        //notify the user.
-
-        //pass2.style.backgroundColor = badColor;
-        message.style.color = badColor;
-        message.innerHTML = "Passwords Do Not Match!"
-        message.innerHTML = '<img src="/assets/images/cross.png" alt="Passwords Do Not Match!">';
-        submitBtn.disabled = true
-    }
-}
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="login">
+					<img src='@routes.Assets.at("images/SVG/male18.svg")' alt="image login" class="glossy"/>
+					<form action="flux.php" method="post">
+						<input type="text" name="username" placeholder="Username" class="span12"/>
+						<input type="password" name="password" placeholder="Password" class="span12"/>
+						<input type="submit" name="login" value="Login" class="btn btn-info span12"/>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
-</script>
+	<script type="text/javascript" src='@routes.Assets.at("javascripts/jquery.min.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("javascripts/bootstrap.js")'></script>
 
+
+ }

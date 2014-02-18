@@ -22,19 +22,20 @@ object Application extends Controller {
   )
 
   def index = Action {
-    Ok(views.html.index(User.all(), userForm))
+    Ok(views.html.index())
+    //Ok(views.html.indexbis(User.all(), userForm))
   }
 
-  def newUser = Action {
-    implicit request =>
-      userForm.bindFromRequest.fold(
-        errors => BadRequest(views.html.index(User.all(), errors)),
-        fields => {
-          User.create(fields.login, fields.password, fields.email)
-          Redirect(routes.Application.index)
-        }
-      )
-  }
+//  def newUser = Action {
+//    implicit request =>
+//      userForm.bindFromRequest.fold(
+//        errors => BadRequest(views.html.index(User.all(), errors)),
+//        fields => {
+//          User.create(fields.login, fields.password, fields.email)
+//          Redirect(routes.Application.index)
+//        }
+//      )
+//  }
 
   def deleteUser(login: String) = Action {
     User.delete(login)

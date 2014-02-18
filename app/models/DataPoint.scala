@@ -19,7 +19,7 @@ object DataPoint {
   }
 
   def loadData = {
-    val data = for (line <- Source.fromFile("public/data/features.test.txt").getLines()) yield
+    val data = for (line <- Source.fromFile("public/data/features.index.scala.html").getLines()) yield
       DataPoint.apply(line.replaceAll("^\\s+", "").split("\\s+").map(_.toDouble))
     data.toList
   }
