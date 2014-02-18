@@ -7,7 +7,7 @@ GET     /                           controllers.Application.index
 
 # user administration
 GET     /index                      controllers.Application.index
-# POST    /user/add                   controllers.Application.newUser
+# POST    /user/add                 controllers.Application.newUser
 POST    /users/:id/delete           controllers.Application.deleteUser(id: String)
 
 # chart plotting
