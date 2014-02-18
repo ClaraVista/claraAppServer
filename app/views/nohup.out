@@ -1,0 +1,35 @@
+
+(java:24352): Gtk-WARNING **: Unable to locate theme engine in module_path: "pixmap",
+
+(java:24352): Gtk-WARNING **: Unable to locate theme engine in module_path: "pixmap",
+
+(java:24352): Gtk-WARNING **: Unable to locate theme engine in module_path: "pixmap",
+
+(java:24352): Gtk-WARNING **: Unable to locate theme engine in module_path: "pixmap",
+
+(java:24352): Gtk-WARNING **: Unable to locate theme engine in module_path: "pixmap",
+log4j:WARN No such property [maxFileSize] in org.apache.log4j.FileAppender.
+log4j:WARN No such property [maxBackupIndex] in org.apache.log4j.FileAppender.
+13:21:33,714 WARN  [DefaultSoapUICore] Missing folder [/home/spark/ext] for external libraries
+13:21:33,921 INFO  [DefaultSoapUICore] initialized soapui-settings from [/home/spark/soapui-settings.xml]
+13:21:34,317 INFO  [WorkspaceImpl] Loading workspace from [/home/spark/intellij-soapui-workspace.xml]
+13:22:15,955 INFO  [WorkspaceImpl] Saved workspace to [/home/spark/intellij-soapui-workspace.xml]
+13:22:15,959 INFO  [DefaultSoapUICore] Settings saved to [/home/spark/soapui-settings.xml]
+13:50:14,022 INFO  [WorkspaceImpl] Saved workspace to [/home/spark/intellij-soapui-workspace.xml]
+13:50:14,024 INFO  [DefaultSoapUICore] Settings saved to [/home/spark/soapui-settings.xml]
+[1732815]   WARN - api.vfs.impl.local.FileWatcher - Watcher terminated with exit code 0 
+
+(java:38768): Gtk-WARNING **: Unable to locate theme engine in module_path: "pixmap",
+
+(java:38768): Gtk-WARNING **: Unable to locate theme engine in module_path: "pixmap",
+
+(java:38768): Gtk-WARNING **: Unable to locate theme engine in module_path: "pixmap",
+
+(java:38768): Gtk-WARNING **: Unable to locate theme engine in module_path: "pixmap",
+
+(java:38768): Gtk-WARNING **: Unable to locate theme engine in module_path: "pixmap",
+log4j:WARN No such property [maxFileSize] in org.apache.log4j.FileAppender.
+log4j:WARN No such property [maxBackupIndex] in org.apache.log4j.FileAppender.
+13:50:20,465 WARN  [DefaultSoapUICore] Missing folder [/home/spark/ext] for external libraries
+13:50:20,607 INFO  [DefaultSoapUICore] initialized soapui-settings from [/home/spark/soapui-settings.xml]
+13:50:20,948 INFO  [WorkspaceImpl] Loading workspace from [/home/spark/intellij-soapui-workspace.xml]

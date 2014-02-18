@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clarabox - Bienvenue</title>
+
+    <!-- Bootstrap -->
+    <link href='@routes.Assets.at("stylesheets/bootstrap.css")' rel="stylesheet">
+    <link href='@routes.Assets.at("stylesheets/styles.css")' rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  
+  <!--Icons :
+  http://www.flaticon.com/search/data
+  -->
+  </head>
+  <body>
+    <div class="header_wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <a class="logo" title="" href="#"><img alt="" src='@routes.Assets.at("images/logo_claravista.png")' width="100"></a>
+          <ul class="user_nav">
+            <li><span>&nbsp;</span></li>
+          </ul><!-- user_nav end -->
+        </div>
+      </div>
+    </div>
+
+    <div class="contentainer_wrapper">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="wrapper">
+                        <!-- sidebar_navigation start -->
+                        <div class="sidebar_navigation gradient">
+                            <ul>
+                                <li class="active" style="height: auto;">
+                                    <a href="index.html" class="i_dashboard">
+                                        <span class="tab_label" style="visibility: visible;">Accueil</span>
+                                        <span class="tab_info" style="visibility: visible;">Informations générales</span>
+                                    </a>
+                                </li>
+
+                                <li style="height: auto;">
+                                    <a href="flux.html" class="i_forms">
+                                        <span class="tab_label" style="visibility: visible;">Flux</span>
+                                        <span class="tab_info" style="visibility: visible;">Flux de données</span>
+                                    </a>
+                                </li>
+
+                                <li style="height: auto;">
+                                    <a href="extraction.html" class="i_elements tip-right" data-original-title="">
+                                        <span class="tab_label" style="visibility: visible;">Extraction</span>
+                                        <span class="tab_info" style="visibility: visible;">Extraire des données</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div><!-- sidebar_navigation end -->
+                        <div class="content_wrapper">
+                            <div class="contents">
+                                <div class="row-fluid">
+                                    <div class="span6">
+                                        <div class="ico_16_tables content_header">
+                                            <h3>Bienvenue dans la Clarabox !</h3>
+                                            <span>Gérer vos données</span>
+                                        </div>
+                                    </div>
+                                    <div class="span4 offset2">
+                                        <div class="content_action_buttons">
+                                            <div class="pull-right">
+                                                <ul class="nav nav-pills content_actions">
+                                                    <li>
+                                                        <div class="btn-group">
+                                                            <a class="btn" href="#"><i class="icon-cog"></i> Réglages</a>
+                                                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                                                            <ul class="dropdown-menu widget_option_dropdown settings_dropdown">
+                                                                <li><a href="#"><i class="icon-eye-open"></i> View</a></li>
+                                                                <li><a href="#"><i class="icon-plus"></i> Add</a></li>
+                                                                <li><a href="#"><i class="icon-remove"></i> Remove</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li><button class="btn"><i class="icon-info-sign"></i> Aide</button></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="separator">
+                                    <span></span>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="span12">
+                                        <ul class="breadcrumb">
+                                            <li class="active"><a href="index.html">Accueil</a></li>
+                                        </ul><!-- breadcrumb end -->
+                                    </div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="span12">
+                                        
+                                    </div>
+                                </div>
+                            </div><!-- content end -->
+                        </div><!-- content_wrapper end -->
+                    </div><!-- wrapper end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="footer_wrapper">
+      <div class="container-fluid">
+          <div class="row-fluid">
+              <div class="span12">
+                  <div class="footer">
+                      Tous droits réservés ® à <a href="http://www.claravista.com">Claravista</a>
+                  </div><!-- footer end -->
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src='@routes.Assets.at("javascripts/bootstrap.min.js")'></script>
+  </body>
+</html>
