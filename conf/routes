@@ -10,6 +10,9 @@ GET     /index                      controllers.Application.index
 # POST    /user/add                   controllers.Application.newUser
 POST    /users/:id/delete           controllers.Application.deleteUser(id: String)
 
+# Affiche les onglets
+GET     /flux                          controllers.FluxController.displayFlux
+
 # chart plotting
 GET     /googlechart                controllers.Application.googleChart
 GET     /highchart                  controllers.Application.highChart

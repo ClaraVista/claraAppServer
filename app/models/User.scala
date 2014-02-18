@@ -24,13 +24,13 @@ object User {
 
   def all() = DB.withConnection {
     implicit connect =>
-      SQL("select * from t_user").as(userParser *)
+      SQL("select * from t_userBis").as(userParser *)
   }
 
   def create(login: String, password: String, email: String) = {
     DB.withConnection {
       implicit connect =>
-        SQL("insert into t_user (login, password, email, isAdmin) values ({login}, {password}, {email}, false)")
+        SQL("insert into t_userBis (login, password, email, isAdmin) values ({login}, {password}, {email}, false)")
           .on('login -> login, 'password -> password, 'email -> email)
           .executeUpdate()
     }
@@ -39,7 +39,7 @@ object User {
   def delete(login: String) {
     DB.withConnection {
       implicit c =>
-        SQL("delete from t_user where login = {login}").on(
+        SQL("delete from t_userBis where login = {login}").on(
           'login -> login
         ).executeUpdate()
     }
