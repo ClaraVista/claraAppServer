@@ -4,7 +4,6 @@
 
 @main("ClaraVista") {
 
-
 <h1>@users.size user(s)</h1>
 
 <ul>
@@ -23,6 +22,7 @@
 
 <h2>Sign Up: </h2>
 
+@*
     @form(routes.Application.newUser) {
         @inputText(userForm("login"))
         @inputPassword(userForm("password"), 'onkeyup -> "checkPass(); return false;")
@@ -35,7 +35,7 @@
         @inputText(userForm("email"))
         <input id="mySubmit" type="submit" value="Create">
     }
-
+*@
 }
 
 <script>

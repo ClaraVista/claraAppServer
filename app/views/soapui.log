@@ -1,3 +1,0 @@
-2014-02-17 13:50:20,465 WARN  [DefaultSoapUICore] Missing folder [/home/spark/ext] for external libraries
-2014-02-17 13:50:20,607 INFO  [DefaultSoapUICore] initialized soapui-settings from [/home/spark/soapui-settings.xml]
-2014-02-17 13:50:20,948 INFO  [WorkspaceImpl] Loading workspace from [/home/spark/intellij-soapui-workspace.xml]
