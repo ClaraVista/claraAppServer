@@ -33,8 +33,11 @@ CREATE TABLE t_flow (
   INSERT INTO t_flow (name, firstdate,nb_lines_total,lastreceptiondate,nb_lines_received)
   VALUES ('BBBBB','2007-07-07 ','7000','2014-11-09 ','700');
 
+
 # --- !Downs
 
 
 DROP TABLE t_user;
 DROP TABLE t_flow;
+
+

@@ -18,19 +18,28 @@ import play.api.Play.current
 
 
 case class Flow (idFlow: Int, name: String, dateFirst: DateTime, nbLinesTotal: Int, dateLastReceived: DateTime, nbLinesReceived: Int)
-case class GlobalId(idIndicators: Int, name: String, description: String, order: Int, value: Int)
+case class GlobalId(idIndicator: Int, name: String, description: String, order: Int, value: Int)
 
 object FluxModel {
 
-  val userParser = {
+  val flowParser = {
     get[Int]("idflow") ~ get[String]("name") ~ get[DateTime]("firstdate") ~ get[Int]("nb_lines_total") ~ get[DateTime]("lastreceptiondate") ~get[Int]("nb_lines_received") map {
       case id ~ n ~ fd ~ nlt ~ lrd ~ nlr => Flow(id, n, fd, nlt,lrd, nlr)
     }
   }
 
-  def all() = DB.withConnection {
-    implicit connect =>
-      SQL("select * from t_flow").as(userParser *)
+  val globalIdParser = {
+    get[Int]("idindicator") ~ get[String]("name") ~ get[String]("description") ~ get[Int]("orderofname") ~get[Int]("valueofname") map {
+      case id ~ n ~ d ~ oon ~ von => GlobalId(id, n, d,oon, von)
+    }
+  }
+
+  def flowAll() = DB.withConnection {
+    implicit connect =>SQL("select * from t_flow").as(flowParser *)
+  }
+
+  def globalIdAll() = DB.withConnection {
+    implicit connect =>SQL("select * from t_globalid ").as(globalIdParser *)
   }
 
 }

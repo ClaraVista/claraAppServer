@@ -1,4 +1,4 @@
-@(listFlow :List[Flow])
+@(listFlow :List[Flow], listGlobalId :List[GlobalId])
 
 @import helper._
 @* @import tools.nsc.interpreter.ProductCompletion    *@
@@ -15,37 +15,19 @@
       <div class="row-fluid">
         <div class="widget_content no-padding">
 
+
+            @listGlobalId.map { globalId =>
           <div class="form_inputs clearfix clickable">
             <div class="row-fluid">
                 <div class="span3">
-                    <p>Nb de client</p>
+                    <p>@globalId.name</p>
                 </div>
                 <div class="span5 offset1">
-                  <p>12345678</p>
+                  <p>@globalId.value</p>
                 </div>
             </div>
           </div>
-
-           <div class="form_inputs clearfix clickable">
-            <div class="row-fluid">
-                <div class="span3">
-                    <p>Nb de prospects navigation</p>
-                </div>
-                <div class="span5 offset1">
-                  <p>325486</p>
-                </div>
-            </div>
-          </div>
-           <div class="form_inputs clearfix clickable">
-            <div class="row-fluid">
-                <div class="span3">
-                    <p>Nb de client recoupés sur le site web</p>
-                </div>
-                <div class="span5 offset1">
-                  <p>254783</p>
-                </div>
-            </div>
-          </div>
+            }
 
         </div>
       </div>
@@ -72,11 +54,11 @@
           <table class="default_table dynamicTable_two">
               <thead>
               <tr>
-                  <th>"ProductCompletion(listFlow)caseNames.head"</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
+                  <th>Name</th>
+                  <th>First date</th>
+                  <th>Total lines number</th>
+                  <th>Last received date</th>
+                  <th>Number of lines received</th>
               </tr>
               </thead>
               <tbody>
@@ -94,11 +76,11 @@
               </tbody>
               <tfoot>
               <tr>
-                  <td>Rendering engine</td>
-                  <td>Browser</td>
-                  <td>Platform(s)</td>
-                  <td>Engine version</td>
-                  <td>CSS grade</td>
+                  <td>Name</td>
+                  <td>First date</td>
+                  <td>Total lines number</td>
+                  <td>Last received date</td>
+                  <td>Number of lines received</td>
               </tr>
               </tfoot>
           </table>

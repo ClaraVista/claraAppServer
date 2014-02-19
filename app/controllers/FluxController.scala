@@ -18,8 +18,8 @@ object FluxController extends Controller {
     fluxActive = true
     ExtractionController.extractionActive = false
 
-    println(models.FluxModel.all().toString())
-    Ok(views.html.header().+=(views.html.flux(models.FluxModel.all())).+=(views.html.footer()))
+    println(models.FluxModel.globalIdAll().sortBy(r => r.order))
+    Ok(views.html.header().+=(views.html.flux(models.FluxModel.flowAll(),models.FluxModel.globalIdAll().sortBy(r => r.order))).+=(views.html.footer()))
   }
 
 }
