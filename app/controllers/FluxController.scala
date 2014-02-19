@@ -17,7 +17,9 @@ object FluxController extends Controller {
   def displayFlux = Action {
     fluxActive = true
     ExtractionController.extractionActive = false
-    Ok(views.html.header().+=(views.html.flux()).+=(views.html.footer()))
+
+    println(models.FluxModel.all().toString())
+    Ok(views.html.header().+=(views.html.flux(models.FluxModel.all())).+=(views.html.footer()))
   }
 
 }
