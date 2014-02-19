@@ -1,6 +1,6 @@
-@()
+@(indexForm: Form[IndexController.signUpForm])
 
-@import helper._
+@import controllers.IndexController.HelperForm._
 @import play.api.data.Field
 
 @main("ClaraVista") {
@@ -12,21 +12,35 @@
 				<div class="login">
 					<img src='@routes.Assets.at("images/SVG/male18.svg")' alt="image login" class="glossy"/>
 
-                    @form(routes.IndexController.checkPassword) {
-                    @* @inputText('name ->"username", 'placeholder -> "placeholder", 'class="span12") *@
+                    @helper.form(routes.IndexController.checkPassword) {
 
+                    @helper.inputText(indexForm("login"), 'placeholder->"login", 'class->"span12")
+                    @helper.inputPassword(indexForm("password"), 'placeholder->"password", 'class->"span12")
 
+                    @*
+                    @helper.input(indexForm("login"), '_label -> "") { (id, name, value, args) =>
+                    <input type="text" name="username" placeholder="Username" class="span12">
+                    }
+                    @helper.input(indexForm("password"), '_label -> "") { (id, name, value, args) =>
+                    <input type="password" name="password" placeholder="Password" class="span12"/>
+                    }
+
+                    @inputText(indexForm("login"),'name ->"username", 'placeholder -> "Username", 'class -> "span12")
+                    @inputPassword(indexForm("password"),'name ->"password", 'placeholder -> "Password", 'class -> "span12")
+                    *@
+                      <input type="text" name="username" placeholder="Username" class="span12"/>
 						<input type="password" name="password" placeholder="Password" class="span12"/>
 						<input type="submit" name="login" value="Login" class="btn btn-info span12"/>
+
+
                       }
+
 				</div>
 			</div>
 		</div>
 	</div>
 
-
 	<script type="text/javascript" src='@routes.Assets.at("javascripts/jquery.min.js")'></script>
     <script type="text/javascript" src='@routes.Assets.at("javascripts/bootstrap.js")'></script>
-
 
  }

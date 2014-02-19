@@ -3,12 +3,12 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index
+GET     /                           controllers.IndexController.index
 
 # user administration
-GET     /index                      controllers.Application.index
+GET     /index                      controllers.IndexController.index
 # POST    /user/add                 controllers.Application.newUser
-POST    /users/:id/delete           controllers.Application.deleteUser(id: String)
+# POST    /users/:id/delete           controllers.Application.deleteUser(id: String)
 
 # Affiche les onglets
 GET     /flux                        controllers.FluxController.displayFlux
@@ -25,3 +25,5 @@ GET     /highchart                  controllers.Application.highChart
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+

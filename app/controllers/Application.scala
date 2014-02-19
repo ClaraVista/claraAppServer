@@ -21,10 +21,12 @@ object Application extends Controller {
     )(signUpForm.apply)(signUpForm.unapply)
   )
 
+  /*
   def index = Action {
     Ok(views.html.index())
     //Ok(views.html.indexbis(User.all(), userForm))
   }
+  */
 
 //  def newUser = Action {
 //    implicit request =>
@@ -37,10 +39,12 @@ object Application extends Controller {
 //      )
 //  }
 
+  /*
   def deleteUser(login: String) = Action {
     User.delete(login)
     Redirect(routes.Application.index)
   }
+  */
 
   // create chart
 

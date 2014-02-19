@@ -9,6 +9,7 @@ import play.api.db.DB
  * Time: 11:19 AM
  */
 class IndexModel {
+
     /*
   def checkPassword() = DB.withConnection {
     implicit connect =>
