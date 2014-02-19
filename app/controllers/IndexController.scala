@@ -16,6 +16,8 @@ case class signUpForm(login: String, password: String, pwdConfirmation: String, 
 
 object IndexController extends Controller {
 
+  var indexActive : Boolean = false
+
   val userForm : Form[signUpForm] = Form(
     mapping(
       "login" -> nonEmptyText,
@@ -26,6 +28,8 @@ object IndexController extends Controller {
   )
 
   def checkPassword = Action {
+     indexActive = true
+     FluxController.fluxActive = false
      Redirect(routes.FluxController.displayFlux)
   }
 

@@ -12,7 +12,11 @@ import play.api.mvc._
  */
 object FluxController extends Controller {
 
+  var fluxActive : Boolean  = false
+
   def displayFlux = Action {
+    fluxActive = true
+    IndexController.indexActive = false
     Ok(views.html.header().+=(views.html.flux()).+=(views.html.footer()))
   }
 
