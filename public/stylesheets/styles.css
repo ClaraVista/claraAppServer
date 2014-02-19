@@ -504,20 +504,20 @@ h6 {
 }
 
 .i_dashboard{
-    /*background-image: url(../img/icons/gray/glyphicons_020_home.png);*/
-    background-image: url(../img/SVG/home63.svg);
+    /*background-image: url(../images/icons/gray/glyphicons_020_home.png);*/
+    background-image: url(../images/SVG/home63.svg);
     background-size:30px;
 }
 
 .i_forms{
-    /*background-image: url(../img/icons/gray/glyphicons_019_cogwheel.png);*/
-    background-image: url(../img/SVG/data21.svg);
+    /*background-image: url(../images/icons/gray/glyphicons_019_cogwheel.png);*/
+    background-image: url(../images/SVG/data21.svg);
     background-size:30px;
 }
 
 .i_elements{
-    /*background-image: url(../img/icons/gray/glyphicons_119_adjust.png);*/
-    background-image: url(../img/SVG/data46.svg);
+    /*background-image: url(../images/icons/gray/glyphicons_119_adjust.png);*/
+    background-image: url(../images/SVG/data46.svg);
     background-size:30px;
 }
 
@@ -571,7 +571,7 @@ h6 {
 }
 
 .separator > span {
-    background: url("../img/separator.png") no-repeat scroll 50% center #E6E6E6;
+    background: url("../images/separator.png") no-repeat scroll 50% center #E6E6E6;
     display: block;
     height: 9px;
     left: 50%;
@@ -589,19 +589,19 @@ h6 {
 }
 
 .ico_16_dashboard{
-    background-image: url(../img/icons/gray/glyphicons_020_home.png);
+    background-image: url(../images/icons/gray/glyphicons_020_home.png);
 }
 
 .ico_16_forms{
-    background-image: url(../img/icons/gray/glyphicons_019_cogwheel.png);
+    background-image: url(../images/icons/gray/glyphicons_019_cogwheel.png);
 }
 
 .ico_16_elements{
-    background-image: url(../img/icons/gray/glyphicons_020_home.png);
+    background-image: url(../images/icons/gray/glyphicons_020_home.png);
 }
 
 .ico_16_typography{
-    background-image: url(../img/icons/gray/glyphicons_100_font.png);
+    background-image: url(../images/icons/gray/glyphicons_100_font.png);
 }
 
 .ico_16_tables{
@@ -609,15 +609,15 @@ h6 {
 }
 
 .ico_16_gallery{
-    background-image: url(../img/icons/gray/glyphicons_159_picture.png);
+    background-image: url(../images/icons/gray/glyphicons_159_picture.png);
 }
 
 .ico_16_grid{
-    background-image: url(../img/icons/gray/glyphicons_155_show_thumbnails.png);
+    background-image: url(../images/icons/gray/glyphicons_155_show_thumbnails.png);
 }
 
 .ico_16_charts{
-    background-image: url(../img/icons/gray/glyphicons_041_charts.png);
+    background-image: url(../images/icons/gray/glyphicons_041_charts.png);
 }
 
 .breadcrumb{
@@ -821,8 +821,8 @@ h6 {
 }
 
 .icos_table{
-    /*background-image: url(../img/icons/gray/glyphicons_090_table.png);*/
-    background-image: url(../img/SVG/data21.svg);
+    /*background-image: url(../images/icons/gray/glyphicons_090_table.png);*/
+    background-image: url(../images/SVG/data21.svg);
     background-size:20px;
 }
 .icos_table2{
@@ -972,7 +972,7 @@ dd{
     margin: auto;
     margin-top: 20px;
 }
-.bolt-chart-legend .bolt-chart-icon img {
+.bolt-chart-legend .bolt-chart-icon images {
     width: 48px;
 }
 .bolt-chart-legend .bolt-chart-heading {

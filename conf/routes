@@ -11,8 +11,9 @@ GET     /index                      controllers.Application.index
 POST    /users/:id/delete           controllers.Application.deleteUser(id: String)
 
 # Affiche les onglets
-GET     /flux                          controllers.FluxController.displayFlux
+GET     /flux                        controllers.FluxController.displayFlux
 POST    /fluxTemp                    controllers.IndexController.checkPassword
+GET     /extraction                  controllers.ExtractionController.displayExtraction
 
 # chart plotting
 GET     /googlechart                controllers.Application.googleChart

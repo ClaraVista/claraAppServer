@@ -28,8 +28,6 @@ object IndexController extends Controller {
   )
 
   def checkPassword = Action {
-     indexActive = true
-     FluxController.fluxActive = false
      Redirect(routes.FluxController.displayFlux)
   }
 
