@@ -12,20 +12,24 @@ import anorm.SqlParser._
  * Date: 1/22/14
  * Time: 11:55 AM
  */
-case class User(login: String, password: String, email: String, isAdmin: Boolean = false)
+case class User(login: String, password: String, email :String, isAdmin : Boolean)
 
 object User {
 
-  val userParser = {
+ /* val userParser = {
     get[String]("login") ~ get[String]("password") ~ get[String]("email") map {
-      case lg ~ pwd ~ email => User(lg, pwd, email)
+      case lg ~ pwd ~ email => User(lg, pwd)
     }
-  }
+  } */
+
+  /*
 
   def all() = DB.withConnection {
     implicit connect =>
       SQL("select * from t_userBis").as(userParser *)
-  }
+  } */
+
+  /*
 
   def create(login: String, password: String, email: String) = {
     DB.withConnection {
@@ -34,7 +38,9 @@ object User {
           .on('login -> login, 'password -> password, 'email -> email)
           .executeUpdate()
     }
-  }
+  } */
+
+
 
   def delete(login: String) {
     DB.withConnection {
@@ -44,4 +50,5 @@ object User {
         ).executeUpdate()
     }
   }
+
 }

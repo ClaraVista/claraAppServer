@@ -20,7 +20,7 @@ object IndexController extends Controller {
 
   val userForm : Form[signUpForm] = Form(
     mapping(
-      "login" -> nonEmptyText,
+      "username" -> nonEmptyText,
       "password" -> nonEmptyText,
       "pwdConfirmation" -> nonEmptyText,
       "email" -> text
