@@ -2,6 +2,7 @@
 @()
 
 @import helper._
+@import play.api.mvc._
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +59,7 @@
 
 
                                 <li   @if(FluxController.fluxActive) {  class="active" }  style="height: auto;">
-                                     <a href=""  class="i_forms">
+                                     <a  href="flux"  class="i_forms">
                                         <span class="tab_label"
                                               style="visibility: visible;">Flux</span>
                                         <span class="tab_info" style="visibility: visible;">Flux de données</span>
@@ -66,7 +67,7 @@
                                 </li>
 
                                 <li @if(ExtractionController.extractionActive) {  class="active" }   style="height: auto;">
-                                    <a href="extraction.php" class="i_elements tip-right" data-original-title="">
+                                    <a href="extraction" class="i_elements tip-right" data-original-title="">
                                         <span class="tab_label" style="visibility: visible;">Extraction</span>
                                         <span class="tab_info" style="visibility: visible;">Extraire des données</span>
                                  </a>

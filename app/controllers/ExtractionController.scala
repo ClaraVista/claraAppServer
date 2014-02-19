@@ -12,7 +12,7 @@ object ExtractionController extends Controller {
 
   var extractionActive : Boolean  = false
 
-  def displayFlux = Action {
+  def displayExtraction = Action {
     extractionActive = true
     FluxController.fluxActive = false
     Ok(views.html.header().+=(views.html.extraction()).+=(views.html.footer()))
