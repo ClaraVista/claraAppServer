@@ -2017,26 +2017,26 @@ tr.even.gradeC td.sorting_3 {
 }
 
 .dataTable thead tr .sorting_asc {
-    background: #eee url('../img/sort_asc.png') no-repeat center right;
+    background: #eee url('../images/sort_asc.png') no-repeat center right;
 }
 
 .dataTable thead tr .sorting_desc {
-    background: #eee url('../img/sort_desc.png') no-repeat center right;
+    background: #eee url('../images/sort_desc.png') no-repeat center right;
 }
 
 .dataTable thead tr .sorting_asc_disabled {
-    background: url('../img/sort_asc_disabled.png') no-repeat center right;
+    background: url('../images/sort_asc_disabled.png') no-repeat center right;
 }
 
 .dataTable thead tr .sorting_desc_disabled {
-    background: url('../img/sort_desc_disabled.png') no-repeat center right;
+    background: url('../images/sort_desc_disabled.png') no-repeat center right;
 }
 
 /* saf3+, chrome1+ */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     .dataTable thead tr .sorting  {
         background-position: 97% ;
-        background-image: url('../img/sort.png');
+        background-image: url('../images/sort.png');
     }
 }
 
@@ -2056,7 +2056,7 @@ table.dataTable th:active {
 
 /* Slider input css */
 .jslider .jslider-bg i,
-.jslider .jslider-pointer { background: url(../img/jslider.png) no-repeat 0 0; }
+.jslider .jslider-pointer { background: url(../imag/jslider.png) no-repeat 0 0; }
 
 .jslider { display: block; width: 100%; height: 1em; position: relative; top: 0.6em; }
 .jslider table { width: 100%; border-collapse: collapse; border: 0; }
