@@ -1,6 +1,9 @@
 package models
 
 import play.api.db.DB
+import anorm._
+import anorm.SqlParser._
+import play.api.Play.current
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,12 +11,20 @@ import play.api.db.DB
  * Date: 2/19/14
  * Time: 11:19 AM
  */
-class IndexModel {
 
-    /*
-  def checkPassword() = DB.withConnection {
+case class IndexModel(login: String, password: String)
+
+object IndexModel {
+
+  val indexParser = {
+    get[String]("login") ~ get[String]("password") map {
+      case lg ~ pwd => IndexModel(lg, pwd)
+    }
+  }
+
+  def checkPassword(login :String, password : String) = DB.withConnection {
     implicit connect =>
-      SQL("select login, password from t_userBis")
-  }   */
+      SQL("select login, password from t_user where login = {login} and password = {password}").on('login -> login, 'password -> password).as(indexParser *).isEmpty
+  }
 
 }

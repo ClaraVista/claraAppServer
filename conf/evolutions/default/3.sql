@@ -1,5 +1,6 @@
+
  # --- !Ups
-DROP TABLE t_globalid;
+
 
  CREATE TABLE t_globalid (
       idindicator INT NOT NULL AUTO_INCREMENT,
