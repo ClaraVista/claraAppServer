@@ -15,6 +15,8 @@ object ExtractionController extends Controller {
   def displayExtraction = Action {
     extractionActive = true
     FluxController.fluxActive = false
+    //models.ExtractionModel.selectLastFileDB()
+    println("Okkk " + models.ExtractionModel.fieldsNameTableFormatIdDB())
     Ok(views.html.header().+=(views.html.extraction()).+=(views.html.footer()))
   }
 
