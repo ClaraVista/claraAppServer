@@ -5,6 +5,8 @@
 # Home page
 GET     /                           controllers.IndexController.index
 
+# GET     /test                       controllers.Application.create
+
 # user administration
 GET     /index                      controllers.IndexController.index
 # POST    /user/add                 controllers.Application.newUser

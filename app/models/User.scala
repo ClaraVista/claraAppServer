@@ -15,12 +15,33 @@ import anorm.SqlParser._
 case class User(login: String, password: String, email :String, isAdmin : Boolean)
 
 object User {
-
- /* val userParser = {
-    get[String]("login") ~ get[String]("password") ~ get[String]("email") map {
-      case lg ~ pwd ~ email => User(lg, pwd)
+   /*
+  def creatDB()= {
+    DB.withConnection {
+      implicit connect =>
+        SQL(
+          """
+            |COPY FROM
+            |
+            |CREATE TABLE t_hello (
+            |    login varchar(255) NOT NULL,
+            |    password varchar(255) NOT NULL,
+            |    email varchar(255) NOT NULL,
+            |    isAdmin boolean NOT NULL,
+            |    PRIMARY KEY (login)
+            |);
+          """.stripMargin)
+          .on('login -> login, 'password -> password, 'email -> email)
+          .executeUpdate()
     }
-  } */
+  }
+  */
+
+  /* val userParser = {
+     get[String]("login") ~ get[String]("password") ~ get[String]("email") map {
+       case lg ~ pwd ~ email => User(lg, pwd)
+     }
+   } */
 
   /*
 
