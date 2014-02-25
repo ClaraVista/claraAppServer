@@ -14,11 +14,14 @@ import anorm.~
  * Date: 2/20/14
  * Time: 11:21 AM
  */
+
+case class formatId(fieldName: String, description: String, order: Int)
+
 object ExtractionModel {
 
   val fieldsNameParser = {
-    str("fieldname") ~ str("indicatorname")  map {
-      case fn ~ in => List(fn,in)
+    str("fieldname") ~ str("indicatorname") ~ get[Int]("orderofname")  map {
+      case fn ~ in ~ ofn => formatId(fn, in, ofn)
     }
   }
 
@@ -29,7 +32,7 @@ object ExtractionModel {
    val idFormat = maxIdFormatTableFieldReceivedDB()
 
    def fieldsNameTableFormatIdDB() = DB.withConnection {
-    implicit connect =>SQL(new String("select fieldname, indicatorname from t_format_indicators WHERE idformat=" + idFormat)).as(fieldsNameParser *)
+    implicit connect =>SQL(new String("select fieldname, indicatorname, orderofname from t_format_indicators WHERE idformat=" + idFormat)).as(fieldsNameParser *)
   }
 
   val listFields = fieldsNameTableFormatIdDB()

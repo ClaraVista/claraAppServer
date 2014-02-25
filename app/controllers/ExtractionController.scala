@@ -26,25 +26,14 @@ object ExtractionController extends Controller {
       ).as("text/javascript")
   }
 
-  //def approve(user: List[String])  = Action  {
-  def approve(user: String) = Action {
-    println("Valeur du array chk" + user)
-    Ok("qsdf")
-  }
-
   var extractionActive: Boolean = false
-
-  case class extractionBoxesForm(value: List[Boolean])
-
-  case class extractionBoxForm(value: Boolean)
-
 
   def displayExtraction = Action {
     extractionActive = true
     FluxController.fluxActive = false
     //models.ExtractionModel.selectLastFileDB()
     //  println("Okkk " + models.ExtractionModel.fieldsNameTableFormatIdDB())
-    Ok(views.html.header().+=(views.html.extraction(models.ExtractionModel.fieldsNameTableFormatIdDB()).+=(views.html.footer())))
+    Ok(views.html.header().+=(views.html.extraction(models.ExtractionModel.fieldsNameTableFormatIdDB().sortBy(r => r.order)).+=(views.html.footer())))
   }
 
 
