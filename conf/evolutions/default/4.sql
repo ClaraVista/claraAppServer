@@ -1,5 +1,9 @@
-
    # --- !Ups
+      INSERT INTO  t_format_indicators  (idformat, fieldname, indicatorname, orderofname)
+      VALUES ('2','test5','Test lordre du champs ordre 5', '5');
+      INSERT INTO  t_format_indicators  (idformat, fieldname, indicatorname, orderofname)
+      VALUES ('2','test4','Test lordre du champs ordre 4', '4');
+
  CREATE TABLE t_file_received (
       idreception SERIAL NOT NULL,
       receptiondate  DATE NOT NULL,
@@ -16,7 +20,7 @@ VALUES ('2008-11-09','recep2', '2');
 INSERT INTO t_file_received (receptiondate,tablename, idformat)
 VALUES ('2008-11-09','recep3 ','2');
 
-
+     # --- !Ups
  CREATE TABLE t_format_indicators (
       idindicator SERIAL NOT NULL,
       idformat INT NOT NULL,
@@ -37,13 +41,13 @@ VALUES ('2008-11-09','recep3 ','2');
   INSERT INTO  t_format_indicators  (idformat, fieldname, indicatorname, orderofname)
   VALUES ('2','nb_pages','Nombre de pages vues le dernier mois', '3');
 
-# --- !Ups
-   CREATE TABLE recep2 (
-        id_client SERIAL NOT NULL,
-        ca_lastmonth INT NOT NULL,
-        nb_pages INT NOT NULL,
-        PRIMARY KEY (id_client)
-    );
+
+      CREATE TABLE recep2 (
+           id_client SERIAL NOT NULL,
+           ca_lastmonth INT NOT NULL,
+           nb_pages INT NOT NULL,
+           PRIMARY KEY (id_client)
+       );
 
 
 # --- !Down
