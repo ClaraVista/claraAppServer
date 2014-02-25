@@ -2,7 +2,7 @@
 # --- !Ups
 
 CREATE TABLE t_user (
-    iduser INT NOT NULL AUTO_INCREMENT,
+    iduser SERIAL NOT NULL,
     login varchar(255) NOT NULL,
     password varchar(255) NOT NULL,
     nom varchar(255),
@@ -11,9 +11,9 @@ CREATE TABLE t_user (
     PRIMARY KEY (iduser)
 );
 
-# --- !Ups
+
 CREATE TABLE t_flow (
-    idflow INT NOT NULL AUTO_INCREMENT,
+    idflow SERIAL NOT NULL,
     name varchar(255) NOT NULL,
     firstdate DATE NOT NULL,
     nb_lines_total INT NOT NULL,

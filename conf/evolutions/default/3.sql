@@ -3,7 +3,7 @@
 
 
  CREATE TABLE t_globalid (
-      idindicator INT NOT NULL AUTO_INCREMENT,
+      idindicator SERIAL NOT NULL,
       name varchar(255) NOT NULL,
       description varchar(255) NOT NULL,
       orderofname INT NOT NULL UNIQUE,

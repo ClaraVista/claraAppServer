@@ -11,6 +11,9 @@ GET     /                           controllers.IndexController.index
 GET     /index                      controllers.IndexController.index
 # POST    /user/add                 controllers.Application.newUser
 # POST    /users/:id/delete           controllers.Application.deleteUser(id: String)
+# GET    /controllers/ExtractionController/:user                controllers.ExtractionController.approve(user: List[String])
+POST    /controllers/ExtractionController/:fieldsNames               controllers.ExtractionController.checkedValues(fieldsNames: String)
+GET     /controllers/jsRoutes             controllers.ExtractionController.javascriptRoutes
 
 # Affiche les onglets
 GET     /flux                        controllers.FluxController.displayFlux
