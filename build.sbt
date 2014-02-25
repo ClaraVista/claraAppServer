@@ -17,6 +17,5 @@ libraryDependencies ++= Seq(
   cache
 )
 
-libraryDependencies += "com.typesafe.slick" %% "slick" % "2.0.0"
 
 libraryDependencies += "org.postgresql" % "postgresql" % "9.2-1003-jdbc4"

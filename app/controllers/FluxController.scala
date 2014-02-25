@@ -4,6 +4,7 @@ package controllers
 import play.api.mvc._
 
 
+
 /**
  * Created with IntelliJ IDEA.
  * User: spark
@@ -18,7 +19,6 @@ object FluxController extends Controller {
     fluxActive = true
     ExtractionController.extractionActive = false
 
-    println(models.FluxModel.globalIdAll().sortBy(r => r.order))
     Ok(views.html.header().+=(views.html.flux(models.FluxModel.flowAll(),models.FluxModel.globalIdAll().sortBy(r => r.order))).+=(views.html.footer()))
   }
 
