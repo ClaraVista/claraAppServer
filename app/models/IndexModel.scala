@@ -2,9 +2,6 @@ package models
 
 import anorm._
 import anorm.SqlParser._
-
-import scala.slick.jdbc.JdbcBackend.Database
-import scala.slick.jdbc.StaticQuery
 import play.api.db.DB
 import play.api.Play.current
 
