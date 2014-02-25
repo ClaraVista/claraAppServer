@@ -12,14 +12,13 @@ GET     /index                      controllers.IndexController.index
 # POST    /user/add                 controllers.Application.newUser
 # POST    /users/:id/delete           controllers.Application.deleteUser(id: String)
 # GET    /controllers/ExtractionController/:user                controllers.ExtractionController.approve(user: List[String])
-GET    /controllers/ExtractionController/:user                controllers.ExtractionController.approve(user: String)
+POST    /controllers/ExtractionController/:fieldsNames               controllers.ExtractionController.checkedValues(fieldsNames: String)
 GET     /controllers/jsRoutes             controllers.ExtractionController.javascriptRoutes
 
 # Affiche les onglets
 GET     /flux                        controllers.FluxController.displayFlux
 POST    /fluxTemp                    controllers.IndexController.checkPassword
 GET     /extraction                  controllers.ExtractionController.displayExtraction
-POST    /extractionTemp              controllers.ExtractionController.checkedValues
 
 # chart plotting
 GET     /googlechart                controllers.Application.googleChart

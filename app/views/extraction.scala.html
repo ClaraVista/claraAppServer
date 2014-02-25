@@ -1,4 +1,4 @@
-@(listNameFields : List[List[String]], extractionForm: Form[ExtractionController.extractionBoxForm],extractionListForm:  Form[ExtractionController.extractionBoxesForm])
+@(listNameFields : List[List[String]])
 
 @import controllers.IndexController.HelperForm._
 @import play.api.Routes
@@ -31,9 +31,7 @@
 
                 }
                 <div class="validForm">
-
-                    <input type="submit" onclick="sayHello()" id="Extract1" value="Extraire" class="btn btn-info">
-
+                    <input type="submit" id="Extract1" value="Extraire" class="btn btn-info">
                 </div>
                 @*}*@
 
@@ -63,16 +61,6 @@ function getValueUsingClass(){
         chkArray.push($(this).val());
     });
 
-    jsRoutes.controllers.ExtractionController.approve(chkArray).ajax({
-        type: "get",
-        success: function(){
-            alert("success");
-        },
-        error:function(){
-            alert("failure");
-        }
-    });
-
     /* we join the array separated by the comma */
     var selected;
     selected = chkArray.join(',') + ",";
@@ -85,6 +73,18 @@ function getValueUsingClass(){
     }else{
         alert("Please at least one of the checkbox");
     }
+
+     jsRoutes.controllers.ExtractionController.checkedValues(chkArray).ajax({
+        type: "post",
+        success: function(){
+        window.location.href = "/extraction"
+            alert("success");
+        },
+        error:function(){
+            alert("failure");
+        }
+
+    });
 
 
 

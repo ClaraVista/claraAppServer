@@ -1,9 +1,7 @@
-     # --- !Ups
- DROP TABLE t_file_received;
- DROP TABLE t_format_indicators;
+
 
  CREATE TABLE t_file_received (
-      idreception INT NOT NULL AUTO_INCREMENT,
+      idreception SERIAL NOT NULL,
       receptiondate  DATE NOT NULL,
       tablename varchar(255) NOT NULL,
       idformat INT,
@@ -18,8 +16,9 @@ VALUES ('2008-11-09','recep2', '2');
 INSERT INTO t_file_received (receptiondate,tablename, idformat)
 VALUES ('2008-11-09','recep3 ','2');
 
+     # --- !Ups
  CREATE TABLE t_format_indicators (
-      idindicator INT NOT NULL AUTO_INCREMENT,
+      idindicator SERIAL NOT NULL,
       idformat INT NOT NULL,
       fieldname  varchar(255) NOT NULL,
       indicatorname varchar(255) NOT NULL,
@@ -38,8 +37,9 @@ VALUES ('2008-11-09','recep3 ','2');
   INSERT INTO  t_format_indicators  (idformat, fieldname, indicatorname, orderofname)
   VALUES ('2','nb_pages','Nombre de pages vues le dernier mois', '3');
 
+# --- !Ups
    CREATE TABLE recep2 (
-        id_client INT NOT NULL AUTO_INCREMENT,
+        id_client SERIAL NOT NULL,
         ca_lastmonth INT NOT NULL,
         nb_pages INT NOT NULL,
         PRIMARY KEY (id_client)
