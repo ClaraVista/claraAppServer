@@ -1,5 +1,5 @@
 
-
+   # --- !Ups
  CREATE TABLE t_file_received (
       idreception SERIAL NOT NULL,
       receptiondate  DATE NOT NULL,
@@ -16,7 +16,7 @@ VALUES ('2008-11-09','recep2', '2');
 INSERT INTO t_file_received (receptiondate,tablename, idformat)
 VALUES ('2008-11-09','recep3 ','2');
 
-     # --- !Ups
+
  CREATE TABLE t_format_indicators (
       idindicator SERIAL NOT NULL,
       idformat INT NOT NULL,
