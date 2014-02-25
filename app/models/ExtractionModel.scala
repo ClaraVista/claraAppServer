@@ -1,15 +1,11 @@
 package models
 
 import anorm.SqlParser._
-import models.GlobalId
 import anorm._
 import play.api.db.DB
-import anorm.~
-import models.GlobalId
 import play.api.Play.current
 import scala.Predef._
 import anorm.~
-import models.GlobalId
 
 
 /**

@@ -1,8 +1,11 @@
 package models
 
-import play.api.db.DB
 import anorm._
 import anorm.SqlParser._
+
+import scala.slick.jdbc.JdbcBackend.Database
+import scala.slick.jdbc.StaticQuery
+import play.api.db.DB
 import play.api.Play.current
 
 /**
@@ -22,7 +25,8 @@ object IndexModel {
     }
   }
 
-  def checkPassword(login :String, password : String) = DB.withConnection {
+
+  def checkPassword(login: String, password: String) = DB.withConnection {
     implicit connect =>
       SQL("select login, password from t_user where login = {login} and password = {password}").on('login -> login, 'password -> password).as(indexParser *).isEmpty
   }

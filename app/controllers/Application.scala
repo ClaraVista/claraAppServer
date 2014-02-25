@@ -28,6 +28,11 @@ object Application extends Controller {
   }
   */
 
+  /*
+  def create = Action {
+     User.creatDB()
+    Ok("DONE")
+  } */
 //  def newUser = Action {
 //    implicit request =>
 //      userForm.bindFromRequest.fold(
