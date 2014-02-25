@@ -4,8 +4,9 @@ import play.api.mvc.{Action, Controller}
 import views.html.helperForm
 import play.api.data.Form
 import play.api.data.Forms._
-import models.IndexModel
+import models.{ExtractionModel, IndexModel}
 import play.api.Routes
+import java.io.File
 
 
 /**
@@ -39,7 +40,9 @@ object ExtractionController extends Controller {
 
   def checkedValues(fieldsNames: String) = Action {
     println("Ok je suis ici " + "          " + fieldsNames)
-    Redirect(routes.ExtractionController.displayExtraction)
+    ExtractionModel.createFileToSend(fieldsNames)
+    Ok.sendFile(new File("/home/spark/Temp/test.csv"))
+    //Redirect(routes.ExtractionController.displayExtraction)
 
   }
 
