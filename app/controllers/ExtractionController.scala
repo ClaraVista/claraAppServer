@@ -29,19 +29,23 @@ object ExtractionController extends Controller {
   var extractionActive: Boolean = false
 
   def displayExtraction = Action {
-    extractionActive = true
-    FluxController.fluxActive = false
-    //models.ExtractionModel.selectLastFileDB()
-    //  println("Okkk " + models.ExtractionModel.fieldsNameTableFormatIdDB())
-    Ok(views.html.header().+=(views.html.extraction(models.ExtractionModel.fieldsNameTableFormatIdDB().sortBy(r => r.order)).+=(views.html.footer())))
-  }
 
 
-  def checkedValues(fieldsNames: String) = Action {
-    println("Ok je suis ici " + "          " + fieldsNames)
-    Redirect(routes.ExtractionController.displayExtraction)
+    request => request.session.get("username").map {
+      extractionActive = true
+      FluxController.fluxActive = false
+      user => Ok(views.html.header().+=(views.html.extraction(models.ExtractionModel.fieldsNameTableFormatIdDB().sortBy(r => r.order)).+=(views.html.footer())))
+    }.getOrElse {
+      Redirect(routes.IndexController.index)
+    }
+}
 
-  }
+
+def checkedValues (fieldsNames: String) = Action {
+println ("Ok je suis ici " + "          " + fieldsNames)
+Redirect (routes.ExtractionController.displayExtraction)
+
+}
 
 
 }

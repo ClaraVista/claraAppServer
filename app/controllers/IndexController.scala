@@ -46,12 +46,9 @@ object IndexController extends Controller {
             errors => BadRequest(views.html.index(indexForm)),
             fields => {
              if(!IndexModel.checkPassword(fields.login, fields.password))
-               Redirect(routes.FluxController.displayFlux)
+               Redirect(routes.FluxController.displayFlux).withSession(Security.username -> fields.login)
               else  Redirect(routes.IndexController.index)
             }
          )
   }
-
-
-
 }
