@@ -50,6 +50,4 @@ object IndexController extends Controller {
          )
   }
 
-
-
 }

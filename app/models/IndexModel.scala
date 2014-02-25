@@ -25,9 +25,10 @@ object IndexModel {
 
   def checkPassword(login: String, password: String) = DB.withConnection {
     implicit connect =>
-      //SQL("COPY (select * from t_user) TO '/home/spark/test.csv' CSV HEADER")
-        //false
-      SQL("select login, password from t_user where login = {login} and password = {password}").on('login -> login, 'password -> password).as(indexParser *).isEmpty
+      //SQL("COPY (select * from t_user) TO '/home/spark/Temp/test.csv' CSV HEADER")
+      //println("az")
+    //false
+    SQL("select login, password from t_user where login = {login} and password = {password}").on('login -> login, 'password -> password).as(indexParser *).isEmpty
   }
 
 }
