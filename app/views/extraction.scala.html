@@ -1,6 +1,8 @@
-@()
+@(listNameFields : List[List[String]], extractionForm: Form[ExtractionController.extractionBoxForm],extractionListForm:  Form[ExtractionController.extractionBoxesForm])
 
-@import helper._
+@import controllers.IndexController.HelperForm._
+@import play.api.Routes
+
 <div class="row-fluid">
     <div class="span6 offset3">
         <div class="widget_wrapper">
@@ -10,67 +12,82 @@
             </div>
 
             <div class="widget_content no-padding">
-                <form action="extraction.php" method="post">
-                    <div class="form_inputs clearfix clickable">
-                        <div class="row-fluid">
-                            <div class="span3">
-                                <label class="control-label">Rendering engine :</label>
-                            </div>
-                            <div class="span1 offset8">
-                                <input type="checkbox" name="rendering" class="chkbox1"val="0">
-                            </div>
+               @* @helper.form(routes.ExtractionController.checkedValues){    *@
+                @listNameFields.map { fieldName =>
+                <div class="form_inputs clearfix clickable">
+                    <div class="row-fluid">
+                        <div class="span3">
+                            <label class="control-label">@fieldName.tail.head :</label>
+                        </div>
+                        <div id="checkboxlist" class="span1 offset8">
+
+                            <input type="checkbox" name="rendering" class="chkbox1" id="@fieldName.tail.head" value='@fieldName.tail.head'>
+                            @* @helper.checkbox(extractionForm("value"),'name ->"@fieldName.tail.head", 'class->"chkbox1",
+                            'checkboxMap -> "value") *@
+
                         </div>
                     </div>
+                </div>
 
-                    <div class="form_inputs clearfix clickable">
-                        <div class="row-fluid">
-                            <div class="span3">
-                                <label class="control-label">Browser:</label>
-                            </div>
-                            <div class="span1 offset8">
-                                <input type="checkbox" name="browser" class="chkbox1"val="0">
-                            </div>
-                        </div>
-                    </div>
+                }
+                <div class="validForm">
 
-                    <div class="form_inputs clearfix clickable">
-                        <div class="row-fluid">
-                            <div class="span3">
-                                <label class="control-label">Plateform :</label>
-                            </div>
-                            <div class="span1 offset8">
-                                <input type="checkbox" name="platform" class="chkbox1"val="0">
-                            </div>
-                        </div>
-                    </div>
+                    <input type="submit" onclick="sayHello()" id="Extract1" value="Extraire" class="btn btn-info">
 
-                    <div class="form_inputs clearfix clickable">
-                        <div class="row-fluid">
-                            <div class="span3">
-                                <label class="control-label">Engine version :</label>
-                            </div>
-                            <div class="span1 offset8">
-                                <input type="checkbox" name="engine" class="chkbox1"val="0">
-                            </div>
-                        </div>
-                    </div>
+                </div>
+                @*}*@
 
-                    <div class="form_inputs clearfix clickable">
-                        <div class="row-fluid">
-                            <div class="span3">
-                                <label class="control-label">CSS grade :</label>
-                            </div>
-                            <div class="span1 offset8">
-                                <input type="checkbox" name="css" class="chkbox1"val="0">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="validForm">
-                        <input type="submit" value="Extraire" class="btn btn-info">
-                    </div>
-                </form>
-            </div> 
+            </div>
         </div>
     </div>
-</div><!-- content end -->
+</div>
+
+<script type="text/javascript" src="@routes.ExtractionController.javascriptRoutes"></script>
+
+<script>
+
+/* if the page has been fully loaded we add two click handlers to the button */
+$(document).ready(function () {
+    /* Get the checkboxes values based on the class attached to each check box */
+    $("#Extract1").click(function() {
+        getValueUsingClass();
+    });
+});
+
+function getValueUsingClass(){
+    /* declare an checkbox array */
+    var chkArray = [];
+
+    /* look for all checkboes that have a class 'chk' attached to it and check if it was checked */
+    $(".chkbox1:checked").each(function() {
+        chkArray.push($(this).val());
+    });
+
+    jsRoutes.controllers.ExtractionController.approve(chkArray).ajax({
+        type: "get",
+        success: function(){
+            alert("success");
+        },
+        error:function(){
+            alert("failure");
+        }
+    });
+
+    /* we join the array separated by the comma */
+    var selected;
+    selected = chkArray.join(',') + ",";
+
+
+
+    /* check if there is selected checkboxes, by default the length is 1 as it contains one single comma */
+    if(selected.length > 1){
+        alert("You have selected " + selected);
+    }else{
+        alert("Please at least one of the checkbox");
+    }
+
+
+
+}
+
+</script> <!-- content end -->

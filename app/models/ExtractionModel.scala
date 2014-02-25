@@ -39,6 +39,7 @@ object ExtractionModel {
   val listFields = fieldsNameTableFormatIdDB()
 
 
+
   def selectLastFileDB() = DB.withConnection {
     implicit connect =>SQL("select * from recep2").apply()
   }

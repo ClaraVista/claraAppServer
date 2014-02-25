@@ -33,6 +33,8 @@ object IndexController extends Controller {
     )(signUpForm.apply)(signUpForm.unapply)
   )
 
+
+
   def index = Action {
     Ok(views.html.index(indexForm))
     //Ok(views.html.indexbis(User.all(), userForm))
