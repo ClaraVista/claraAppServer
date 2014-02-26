@@ -14,7 +14,7 @@ import play.api.Routes
  * Date: 2/19/14
  * Time: 10:34 AM
  */
-object ExtractionController extends Controller {
+object ExtractionController extends Controller{
 
   def javascriptRoutes = Action {
     implicit request =>
