@@ -17,14 +17,14 @@ import play.api.Play.current
  */
 
 
-case class Flow (idFlow: Int, name: String, dateFirst: DateTime, nbLinesTotal: Int, dateLastReceived: DateTime, nbLinesReceived: Int)
+case class Flow (idFlow: Int, name: String, dateFirst: String, nbLinesTotal: Int, dateLastReceived: String, nbLinesReceived: Int)
 case class GlobalId(idIndicator: Int, name: String, description: String, order: Int, value: Int)
 
 object FluxModel {
 
   val flowParser = {
     get[Int]("idflow") ~ get[String]("name") ~ get[DateTime]("firstdate") ~ get[Int]("nb_lines_total") ~ get[DateTime]("lastreceptiondate") ~get[Int]("nb_lines_received") map {
-      case id ~ n ~ fd ~ nlt ~ lrd ~ nlr => Flow(id, n, fd, nlt,lrd, nlr)
+      case id ~ n ~ fd ~ nlt ~ lrd ~ nlr => Flow(id, n, fd.toString("dd-MM-yyyy"), nlt,lrd.toString("dd-MM-yyyy"), nlr)
     }
   }
 

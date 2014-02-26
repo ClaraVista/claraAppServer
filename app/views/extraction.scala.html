@@ -21,9 +21,7 @@
                         </div>
                         <div id="checkboxlist" class="span1 offset8">
 
-                            <input type="checkbox" name="rendering" class="chkbox1" id="@fieldName.description" value='@fieldName.description'>
-                            @* @helper.checkbox(extractionForm("value"),'name ->"@fieldName.tail.head", 'class->"chkbox1",
-                            'checkboxMap -> "value") *@
+                            <input type="checkbox" name="rendering" class="chkbox1" id="@fieldName.description" value='@fieldName.fieldName'>
 
                         </div>
                     </div>
@@ -69,7 +67,7 @@ function getValueUsingClass(){
 
     /* check if there is selected checkboxes, by default the length is 1 as it contains one single comma */
     if(selected.length > 1){
-        alert("You have selected " + selected);
+       /* alert("You have selected " + selected);             */
     }else{
         alert("Please at least one of the checkbox");
     }
@@ -78,10 +76,8 @@ function getValueUsingClass(){
         type: "post",
         success: function(){
         window.location.href = "/extraction"
-            alert("success");
         },
         error:function(){
-            alert("failure");
         }
 
     });

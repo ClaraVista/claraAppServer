@@ -44,6 +44,7 @@ object ExtractionModel {
   }
 
   def createFileToSend(fieldsNames : String) = DB.withConnection{
-    implicit connect => SQL("COPY (SELECT " + fieldsNames + " FROM recep2) TO '/home/spark/Temp/test.csv' CSV HEADER").executeUpdate()
+    implicit connect =>
+      SQL("COPY (SELECT " + fieldsNames + " FROM recep2) TO '/home/spark/Temp/test.csv' CSV HEADER").executeUpdate()
   }
 }

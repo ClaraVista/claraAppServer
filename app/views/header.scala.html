@@ -10,7 +10,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Clarabox - <?php echo ($pages[$page]); ?></title>
+    <title>Clarabox - @if(ExtractionController.extractionActive) {
+        Extraction
+        }
+        @if(FluxController.fluxActive) {
+         Flux
+        }</title>
 
     <!-- Bootstrap -->
     <link href='@routes.Assets.at("stylesheets/bootstrap.css")' rel="stylesheet">
@@ -81,8 +86,13 @@
                                 <div class="row-fluid">
                                     <div class="span4 offset4">
                                         <div class="content_header text-centered">
-                                            <h3>Clarabox <?php echo $pages[$page]; ?></h3>
-                                            <span>Bienvenue dans la Carabox !</span>
+                                            @if(ExtractionController.extractionActive) {
+                                            <h3>Clarabox Extraction</h3>
+                                            }
+                                            @if(FluxController.fluxActive) {
+                                            <h3>Clarabox Flux</h3>
+                                            }
+                                            <span>Bienvenue dans la Clarabox !</span>
                                         </div>
                                     </div>
                                     <div class="span2 offset2">

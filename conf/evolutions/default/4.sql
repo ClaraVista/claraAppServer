@@ -49,6 +49,11 @@ VALUES ('2008-11-09','recep3 ','2');
            PRIMARY KEY (id_client)
        );
 
+ INSERT INTO  recep2  (ca_lastmonth, nb_pages)
+   VALUES (1,58);
+   INSERT INTO  recep2  (ca_lastmonth, nb_pages)
+   VALUES (58,25);
+
 
 # --- !Down
 

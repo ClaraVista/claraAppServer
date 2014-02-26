@@ -5,6 +5,8 @@ import play.api.data.Form
 import play.api.data.Forms._
 import views.html.helperForm
 import models.IndexModel
+import java.io.File
+
 
 
 /**
@@ -46,8 +48,10 @@ object IndexController extends Controller {
             errors => BadRequest(views.html.index(indexForm)),
             fields => {
              if(!IndexModel.checkPassword(fields.login, fields.password))
-               Redirect(routes.FluxController.displayFlux)
-              else  Redirect(routes.IndexController.index)
+               Redirect(routes.FluxController.displayFlux).withSession(Security.username -> fields.login)
+              else  //Redirect(routes.IndexController.index)
+               Ok.sendFile(new File("/home/spark/nohup.out"))
+              Redirect(routes.IndexController.index)
             }
          )
   }
