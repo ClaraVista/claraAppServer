@@ -20,32 +20,31 @@ case class formatId(fieldName: String, description: String, order: Int)
 object ExtractionModel {
 
   val fieldsNameParser = {
-    str("fieldname") ~ str("indicatorname") ~ get[Int]("orderofname")  map {
+    str("fieldname") ~ str("indicatorname") ~ get[Int]("orderofname") map {
       case fn ~ in ~ ofn => formatId(fn, in, ofn)
     }
   }
 
-   def maxIdFormatTableFieldReceivedDB() = DB.withConnection {
-    implicit connect =>SQL("select * from t_file_received").as(get[Int]("idformat") *).last
+  def maxIdFormatTableFieldReceivedDB() = DB.withConnection {
+    implicit connect => SQL("select * from t_file_received").as(get[Int]("idformat") *).last
   }
 
-   val idFormat = maxIdFormatTableFieldReceivedDB()
+  val idFormat = maxIdFormatTableFieldReceivedDB()
 
-   def fieldsNameTableFormatIdDB() = DB.withConnection {
-    implicit connect =>SQL(new String("select fieldname, indicatorname, orderofname from t_format_indicators WHERE idformat=" + idFormat)).as(fieldsNameParser *)
+  def fieldsNameTableFormatIdDB() = DB.withConnection {
+    implicit connect => SQL(new String("select fieldname, indicatorname, orderofname from t_format_indicators WHERE idformat=" + idFormat)).as(fieldsNameParser *)
   }
 
   val listFields = fieldsNameTableFormatIdDB()
 
 
-
   def selectLastFileDB() = DB.withConnection {
-    implicit connect =>SQL("select * from recep2").apply()
+    implicit connect => SQL("select * from recep2").apply()
   }
 
-  def createFileToSend(fieldsNames : List[String]) = DB.withConnection {
+  def createFileToSend(fieldsNames: List[String]) = DB.withConnection {
     implicit connect =>
-      val  fieldsNamesSQL = fieldsNames.mkString(" , ")
-      SQL("\\COPY (SELECT " + fieldsNamesSQL + " FROM recep2) TO '/tmp/test2.csv' CSV HEADER").executeUpdate()
+      val fieldsNamesSQL = fieldsNames.mkString(" , ")
+      SQL("COPY (SELECT " + fieldsNamesSQL + " FROM recep2) TO '/tmp/test2.csv' CSV HEADER").executeUpdate()
   }
 }

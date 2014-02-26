@@ -55,9 +55,8 @@ object ExtractionController extends Controller {
           BadRequest("Bad request")
         },
         fs => {
-          //ExtractionModel.createFileToSend(fs)
-          //Ok.sendFile(new File("/tmp/test2.csv"))
-          Ok("gsdgfsdgsd")
+          ExtractionModel.createFileToSend(fs)
+          Ok.sendFile(new File("/tmp/test2.csv"))
         }
       )
   }

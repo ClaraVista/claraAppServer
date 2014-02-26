@@ -8,7 +8,6 @@ package controllers
  */
 object Onglet {
 
-  var ongletActivate : String  = ""
-
+  var ongletActivate: String = ""
 
 }
