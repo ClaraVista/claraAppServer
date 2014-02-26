@@ -1,4 +1,4 @@
-         # --- !Ups
+   # --- !Ups
       INSERT INTO  t_format_indicators  (idformat, fieldname, indicatorname, orderofname)
       VALUES ('2','test5','Test lordre du champs ordre 5', '5');
       INSERT INTO  t_format_indicators  (idformat, fieldname, indicatorname, orderofname)
@@ -48,6 +48,11 @@ VALUES ('2008-11-09','recep3 ','2');
            nb_pages INT NOT NULL,
            PRIMARY KEY (id_client)
        );
+
+ INSERT INTO  recep2  (ca_lastmonth, nb_pages)
+   VALUES (1,58);
+   INSERT INTO  recep2  (ca_lastmonth, nb_pages)
+   VALUES (58,25);
 
 
 # --- !Down

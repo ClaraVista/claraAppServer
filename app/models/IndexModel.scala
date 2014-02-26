@@ -4,6 +4,8 @@ import anorm._
 import anorm.SqlParser._
 import play.api.db.DB
 import play.api.Play.current
+import java.io.{FileOutputStream, OutputStreamWriter, BufferedWriter}
+import play.mvc.Results.Chunks
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,9 +27,7 @@ object IndexModel {
 
   def checkPassword(login: String, password: String) = DB.withConnection {
     implicit connect =>
-      //SQL("COPY (select * from t_user) TO '/home/spark/test.csv' CSV HEADER")
-        //false
-      SQL("select login, password from t_user where login = {login} and password = {password}").on('login -> login, 'password -> password).as(indexParser *).isEmpty
+    SQL("select login, password from t_user where login = {login} and password = {password}").on('login -> login, 'password -> password).as(indexParser *).isEmpty
   }
 
 }

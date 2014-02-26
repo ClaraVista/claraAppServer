@@ -4,8 +4,9 @@ import play.api.mvc.{Action, Controller}
 import views.html.helperForm
 import play.api.data.Form
 import play.api.data.Forms._
-import models.IndexModel
+import models.{ExtractionModel, IndexModel}
 import play.api.Routes
+import java.io.File
 
 
 /**
@@ -28,11 +29,13 @@ object ExtractionController extends Controller{
 
   var extractionActive: Boolean = false
 
+
   val myForm = Form(
     single(
       "fields" -> list(text)
     )
   )
+
 
   def displayExtraction = Action {
     request => request.session.get("username").map {
@@ -45,6 +48,7 @@ object ExtractionController extends Controller{
   }
 
 
+
   def checkedValues = Action {
     implicit request =>
       myForm.bindFromRequest.fold(
@@ -54,11 +58,12 @@ object ExtractionController extends Controller{
           BadRequest("Bad request")
         },
         fs => {
-          println("checked fields = " + fs)
-          Redirect(routes.ExtractionController.displayExtraction)
+          ExtractionModel.createFileToSend(fs)
+          Ok.sendFile(new File("/home/spark/Temp/test.csv"))
         }
       )
   }
+
 
 
 }
