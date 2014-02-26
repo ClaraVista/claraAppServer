@@ -41,5 +41,8 @@ object FluxModel {
   def globalIdAll() = DB.withConnection {
     implicit connect =>SQL("select * from t_globalid ").as(globalIdParser *)
   }
+  def test() = DB.withConnection {
+    implicit connect =>SQL("Copy (Select * From t_flow) To '/tmp/test.csv' With CSV;").apply()
+  }
 
 }

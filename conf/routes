@@ -12,7 +12,8 @@ GET     /index                      controllers.IndexController.index
 # POST    /user/add                 controllers.Application.newUser
 # POST    /users/:id/delete           controllers.Application.deleteUser(id: String)
 # GET    /controllers/ExtractionController/:user                controllers.ExtractionController.approve(user: List[String])
-POST    /controllers/ExtractionController/:fieldsNames               controllers.ExtractionController.checkedValues(fieldsNames: String)
+# POST    /controllers/ExtractionController/:fieldsNames               controllers.ExtractionController.checkedValues(fieldsNames: String)
+POST    /controllers/ExtractionController/               controllers.ExtractionController.checkedValues
 GET     /controllers/jsRoutes             controllers.ExtractionController.javascriptRoutes
 
 # Affiche les onglets
