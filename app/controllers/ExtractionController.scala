@@ -29,11 +29,19 @@ object ExtractionController extends Controller {
 
   var extractionActive: Boolean = false
 
+
+  val myForm = Form(
+    single(
+      "fields" -> list(text)
+    )
+  )
+
+
   def displayExtraction = Action {
     request => request.session.get("username").map {
       extractionActive = true
       FluxController.fluxActive = false
-      user => Ok(views.html.header().+=(views.html.extraction(models.ExtractionModel.fieldsNameTableFormatIdDB().sortBy(r => r.order)).+=(views.html.footer())))
+      user => Ok(views.html.header().+=(views.html.extraction(models.ExtractionModel.fieldsNameTableFormatIdDB().sortBy(r => r.order), myForm).+=(views.html.footer())))
     }.getOrElse {
       Redirect(routes.IndexController.index)
     }
@@ -41,11 +49,19 @@ object ExtractionController extends Controller {
 
 
 
-  def checkedValues(fieldsNames: String) = Action {
-      println("Ok je suis ici " + "          " + fieldsNames)
-      ExtractionModel.createFileToSend(fieldsNames)
-      Ok.sendFile(new File("/home/spark/nohup.out"))
-      Redirect(routes.ExtractionController.displayExtraction)
+  def checkedValues = Action {
+    implicit request =>
+      myForm.bindFromRequest.fold(
+        errors => {
+          // binding failure, you retrieve the form containing errors:
+          println("ERROR")
+          BadRequest("Bad request")
+        },
+        fs => {
+          ExtractionModel.createFileToSend(fs)
+          Ok.sendFile(new File("/home/spark/Temp/test.csv"))
+        }
+      )
   }
 
 

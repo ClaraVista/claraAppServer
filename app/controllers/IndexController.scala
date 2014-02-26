@@ -49,9 +49,7 @@ object IndexController extends Controller {
             fields => {
              if(!IndexModel.checkPassword(fields.login, fields.password))
                Redirect(routes.FluxController.displayFlux).withSession(Security.username -> fields.login)
-              else  //Redirect(routes.IndexController.index)
-               Ok.sendFile(new File("/home/spark/nohup.out"))
-              Redirect(routes.IndexController.index)
+              else  Redirect(routes.IndexController.index)
             }
          )
   }

@@ -1,6 +1,7 @@
-@(listNameFields : List[formatId])
+@(listNameFields : List[formatId], myForm :Form[List[String]])
 
-@import controllers.IndexController.HelperForm._
+@import helper._
+
 @import play.api.Routes
 
 <div class="row-fluid">
@@ -12,26 +13,24 @@
             </div>
 
             <div class="widget_content no-padding">
-               @* @helper.form(routes.ExtractionController.checkedValues){    *@
-                @listNameFields.map { fieldName =>
-                <div class="form_inputs clearfix clickable">
-                    <div class="row-fluid">
-                        <div class="span3">
-                            <label class="control-label">@fieldName.description :</label>
-                        </div>
-                        <div id="checkboxlist" class="span1 offset8">
-
-                            <input type="checkbox" name="rendering" class="chkbox1" id="@fieldName.description" value='@fieldName.fieldName'>
-
-                        </div>
+               @helper.form(routes.ExtractionController.checkedValues){
+                @for(i <- 0 until listNameFields.size) {
+                <div class="form_inputs clearfix">
+                <div class="row-fluid">
+                    <div class="span3">
+                        <label class="control-label">@listNameFields(i).description :</label>
+                    </div>
+                    <div id="checkboxlist" class="span1 offset8">
+                     @checkbox(myForm("fields[" + i + "]"), '_label -> "", 'value -> listNameFields(i).fieldName)
                     </div>
                 </div>
+            </div>
 
                 }
                 <div class="validForm">
                     <input type="submit" id="Extract1" value="Extraire" class="btn btn-info">
                 </div>
-                @*}*@
+                }
 
             </div>
         </div>
@@ -41,7 +40,7 @@
 <script type="text/javascript" src="@routes.ExtractionController.javascriptRoutes"></script>
 
 <script>
-
+/*
 /* if the page has been fully loaded we add two click handlers to the button */
 $(document).ready(function () {
     /* Get the checkboxes values based on the class attached to each check box */
@@ -85,5 +84,5 @@ function getValueUsingClass(){
 
 
 }
-
+  */
 </script> <!-- content end -->
