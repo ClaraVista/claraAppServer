@@ -59,7 +59,7 @@ object ExtractionController extends Controller {
         },
         fs => {
           ExtractionModel.createFileToSend(fs)
-          Ok.sendFile(new File("/home/spark/Temp/test.csv"))
+          Ok.sendFile(new File("/tmp/test.csv"))
         }
       )
   }
