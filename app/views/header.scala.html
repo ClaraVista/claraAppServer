@@ -10,12 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Clarabox - @if(ExtractionController.extractionActive) {
-        Extraction
-        }
-        @if(FluxController.fluxActive) {
-         Flux
-        }</title>
+    <title>Clarabox - @Onglet.ongletActivate</title>
 
     <!-- Bootstrap -->
     <link href='@routes.Assets.at("stylesheets/bootstrap.css")' rel="stylesheet">
@@ -63,7 +58,7 @@
                                 </li-->
 
 
-                                <li   @if(FluxController.fluxActive) {  class="active" }  style="height: auto;">
+                                <li   @if(Onglet.ongletActivate == "Flux") {  class="active" }  style="height: auto;">
                                      <a  href="flux"  class="i_forms">
                                         <span class="tab_label"
                                               style="visibility: visible;">Flux</span>
@@ -71,7 +66,7 @@
                                      </a>
                                 </li>
 
-                                <li @if(ExtractionController.extractionActive) {  class="active" }   style="height: auto;">
+                                <li @if(Onglet.ongletActivate == "Extraction") {  class="active" }   style="height: auto;">
                                     <a href="extraction" class="i_elements tip-right" data-original-title="">
                                         <span class="tab_label" style="visibility: visible;">Extraction</span>
                                         <span class="tab_info" style="visibility: visible;">Extraire des données</span>
@@ -86,12 +81,9 @@
                                 <div class="row-fluid">
                                     <div class="span4 offset4">
                                         <div class="content_header text-centered">
-                                            @if(ExtractionController.extractionActive) {
-                                            <h3>Clarabox Extraction</h3>
-                                            }
-                                            @if(FluxController.fluxActive) {
-                                            <h3>Clarabox Flux</h3>
-                                            }
+
+                                            <h3>Clarabox @Onglet.ongletActivate</h3>
+
                                             <span>Bienvenue dans la Clarabox !</span>
                                         </div>
                                     </div>

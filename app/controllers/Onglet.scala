@@ -6,9 +6,9 @@ package controllers
  * Date: 2/26/14
  * Time: 11:59 AM
  */
-abstract class Onglet {
+object Onglet {
 
-  var ongletList = List[String]()
+  var ongletActivate : String  = ""
 
 
 }

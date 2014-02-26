@@ -46,6 +46,6 @@ object ExtractionModel {
   def createFileToSend(fieldsNames : List[String]) = DB.withConnection {
     implicit connect =>
       val  fieldsNamesSQL = fieldsNames.mkString(" , ")
-      SQL("COPY (SELECT " + fieldsNamesSQL + " FROM recep2) TO '/home/spark/Temp/test.csv' CSV HEADER").executeUpdate()
+      SQL("\\COPY (SELECT " + fieldsNamesSQL + " FROM recep2) TO '/tmp/test2.csv' CSV HEADER").executeUpdate()
   }
 }

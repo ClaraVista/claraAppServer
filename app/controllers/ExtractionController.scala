@@ -15,7 +15,7 @@ import java.io.File
  * Date: 2/19/14
  * Time: 10:34 AM
  */
-object ExtractionController extends Controller{
+object ExtractionController extends Controller {
 
   def javascriptRoutes = Action {
     implicit request =>
@@ -27,8 +27,6 @@ object ExtractionController extends Controller{
       ).as("text/javascript")
   }
 
-  var extractionActive: Boolean = false
-
 
   val myForm = Form(
     single(
@@ -39,8 +37,7 @@ object ExtractionController extends Controller{
 
   def displayExtraction = Action {
     request => request.session.get("username").map {
-      extractionActive = true
-      FluxController.fluxActive = false
+      Onglet.ongletActivate = "Extraction"
       user => Ok(views.html.header().+=(views.html.extraction(models.ExtractionModel.fieldsNameTableFormatIdDB().sortBy(r => r.order), myForm).+=(views.html.footer())))
     }.getOrElse {
       Redirect(routes.IndexController.index)
@@ -58,8 +55,9 @@ object ExtractionController extends Controller{
           BadRequest("Bad request")
         },
         fs => {
-          ExtractionModel.createFileToSend(fs)
-          Ok.sendFile(new File("/home/spark/Temp/test.csv"))
+          //ExtractionModel.createFileToSend(fs)
+          //Ok.sendFile(new File("/tmp/test2.csv"))
+          Ok("gsdgfsdgsd")
         }
       )
   }
