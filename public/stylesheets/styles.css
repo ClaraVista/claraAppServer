@@ -605,7 +605,7 @@ h6 {
 }
 
 .ico_16_tables{
-    background-image: url(../images/gray/glyphicons_090_table.png);
+    background-image: url(../images/icons/gray/glyphicons_090_table.png);
 }
 
 .ico_16_gallery{
@@ -972,7 +972,7 @@ dd{
     margin: auto;
     margin-top: 20px;
 }
-.bolt-chart-legend .bolt-chart-icon images {
+.bolt-chart-legend .bolt-chart-icon img {
     width: 48px;
 }
 .bolt-chart-legend .bolt-chart-heading {
@@ -1434,11 +1434,14 @@ form{
 }
 .clickable{
     cursor: pointer;
+    border-top: 1px solid #FFFFFF !important;
 }
 .clickable:hover{
     color: #49afcd;
 }
-
+.error{
+    color: red;
+}
 .validForm{
     background: #e8e8e8;
     padding: 15px;
