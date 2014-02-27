@@ -12,12 +12,9 @@ import play.api.mvc._
  */
 object FluxController extends Controller {
 
-  var fluxActive: Boolean = false
-
   def displayFlux = Action {
     request => request.session.get("username").map {
-      fluxActive = true
-      ExtractionController.extractionActive = false
+      Onglet.ongletActivate = "Flux"
       user => Ok(views.html.header().+=(views.html.flux(models.FluxModel.flowAll(), models.FluxModel.globalIdAll().sortBy(r => r.order))).+=(views.html.footer()))
     }.getOrElse {
       Redirect(routes.IndexController.index)

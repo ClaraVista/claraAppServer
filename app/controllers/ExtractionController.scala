@@ -27,8 +27,6 @@ object ExtractionController extends Controller {
       ).as("text/javascript")
   }
 
-  var extractionActive: Boolean = false
-
 
   val myForm = Form(
     single(
@@ -39,8 +37,7 @@ object ExtractionController extends Controller {
 
   def displayExtraction = Action {
     request => request.session.get("username").map {
-      extractionActive = true
-      FluxController.fluxActive = false
+      Onglet.ongletActivate = "Extraction"
       user => Ok(views.html.header().+=(views.html.extraction(models.ExtractionModel.fieldsNameTableFormatIdDB().sortBy(r => r.order), myForm).+=(views.html.footer())))
     }.getOrElse {
       Redirect(routes.IndexController.index)
