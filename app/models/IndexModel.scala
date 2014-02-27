@@ -25,7 +25,7 @@ object IndexModel {
   }
 
 
-  def checkPassword(login: String, password: String) = DB.withConnection {
+  def checkPasswordDB(login: String, password: String) = DB.withConnection {
     implicit connect =>
     SQL("select login, password from t_user where login = {login} and password = {password}").on('login -> login, 'password -> password).as(indexParser *).isEmpty
   }

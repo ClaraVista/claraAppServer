@@ -38,7 +38,7 @@ object ExtractionController extends Controller {
   def displayExtraction = Action {
     request => request.session.get("username").map {
       Onglet.ongletActivate = "Extraction"
-      user => Ok(views.html.header().+=(views.html.extraction(models.ExtractionModel.fieldsNameTableFormatIdDB().sortBy(r => r.order), myForm).+=(views.html.footer())))
+      user => Ok(views.html.header().+=(views.html.extraction(models.ExtractionModel.fieldsNameOfTableFormatIdDB().sortBy(r => r.order), myForm).+=(views.html.footer())))
     }.getOrElse {
       Redirect(routes.IndexController.index)
     }
@@ -56,7 +56,7 @@ object ExtractionController extends Controller {
         },
         fs => {
           ExtractionModel.createFileToSend(fs)
-          Ok.sendFile(new File("/tmp/test.csv"))
+          Ok.sendFile(new File(ExtractionModel.path))
         }
       )
   }
