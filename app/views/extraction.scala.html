@@ -1,6 +1,6 @@
 @(listNameFields : List[formatId], myForm :Form[List[String]])
 
-@import helper._
+@import controllers.IndexController.HelperForm._
 
 @import play.api.Routes
 
@@ -17,11 +17,11 @@
                 @for(i <- 0 until listNameFields.size) {
                 <div class="form_inputs clearfix">
                 <div class="row-fluid">
-                    <div class="span3">
+                    <div class="span5">
                         <label class="control-label">@listNameFields(i).description :</label>
                     </div>
-                    <div id="checkboxlist" class="span1 offset8">
-                     @checkbox(myForm("fields[" + i + "]"), '_label -> "", 'value -> listNameFields(i).fieldName)
+                    <div id="checkboxlist" class="span1 offset6">
+                     @helper.checkbox(myForm("fields[" + i + "]"), '_label -> "" , 'value -> listNameFields(i).fieldName)
                     </div>
                 </div>
             </div>

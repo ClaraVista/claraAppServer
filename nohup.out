@@ -1,0 +1,15 @@
+
+(java:44969): Gtk-WARNING **: Unable to locate theme engine in module_path: "pixmap",
+
+(java:44969): Gtk-WARNING **: Unable to locate theme engine in module_path: "pixmap",
+
+(java:44969): Gtk-WARNING **: Unable to locate theme engine in module_path: "pixmap",
+
+(java:44969): Gtk-WARNING **: Unable to locate theme engine in module_path: "pixmap",
+
+(java:44969): Gtk-WARNING **: Unable to locate theme engine in module_path: "pixmap",
+log4j:WARN No such property [maxFileSize] in org.apache.log4j.FileAppender.
+log4j:WARN No such property [maxBackupIndex] in org.apache.log4j.FileAppender.
+09:56:23,875 WARN  [DefaultSoapUICore] Missing folder [/home/spark/ext] for external libraries
+09:56:24,031 INFO  [DefaultSoapUICore] initialized soapui-settings from [/home/spark/soapui-settings.xml]
+09:56:24,360 INFO  [WorkspaceImpl] Loading workspace from [/home/spark/intellij-soapui-workspace.xml]
