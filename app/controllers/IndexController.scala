@@ -5,8 +5,6 @@ import play.api.data.Form
 import play.api.data.Forms._
 import views.html.helperForm
 import models.IndexModel
-import java.io.File
-
 
 
 /**
@@ -38,18 +36,18 @@ object IndexController extends Controller {
 
 
   def index = Action {
-    Ok(views.html.index(indexForm))
+    Ok(views.html.index(indexForm, false))
     //Ok(views.html.indexbis(User.all(), userForm))
   }
 
   def checkPassword = Action {
     implicit request =>
          indexForm.bindFromRequest.fold(
-            errors => BadRequest(views.html.index(indexForm)),
+            errors => BadRequest(views.html.index(indexForm, true)),
             fields => {
              if(!IndexModel.checkPasswordDB(fields.login, fields.password))
                Redirect(routes.FluxController.displayFlux).withSession(Security.username -> fields.login)
-              else  Redirect(routes.IndexController.index)
+              else  Ok(views.html.index(indexForm, true))
             }
          )
   }
