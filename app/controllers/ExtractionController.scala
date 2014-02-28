@@ -56,8 +56,12 @@ object ExtractionController extends Controller {
           BadRequest("Bad request")
         },
         fs => {
-          ExtractionModel.createFileToSend(fs)
-          Ok.sendFile(new File(ExtractionModel.path))
+          if (!fs.isEmpty) {
+            ExtractionModel.createFileToSend(fs)
+            Ok.sendFile(new File(ExtractionModel.path))
+          }  else {
+            Redirect(routes.ExtractionController.displayExtraction)
+          }
         }
       )
   }

@@ -40,7 +40,7 @@ object ExtractionModel {
   def createFileToSend(fieldsNames: List[String]) = DB.withConnection {
     implicit connect =>
       val fieldsNamesSQL = fieldsNames.mkString(" , ")
-      SQL("COPY (SELECT " + fieldsNamesSQL + " FROM recep2) TO '"+ path +"' CSV HEADER").executeUpdate()
+      SQL("COPY (SELECT " + fieldsNamesSQL + " FROM recep2) TO '"+ path +"' CSV HEADER DELIMITER ';'").executeUpdate()
   }
 
 }
