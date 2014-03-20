@@ -20,8 +20,8 @@ POST    /fluxTemp                    controllers.IndexController.checkPassword
 GET     /extraction                  controllers.ExtractionController.displayExtraction
 
 # chart plotting
-GET     /googlechart                controllers.Application.googleChart
-GET     /highchart                  controllers.Application.highChart
+# GET     /googlechart                controllers.Application.googleChart
+# GET     /highchart                  controllers.Application.highChart
 
 # # supervisor
 # GET     /ec2/start                  controllers.Application.startEC2

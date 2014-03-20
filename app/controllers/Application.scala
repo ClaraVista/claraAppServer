@@ -53,22 +53,22 @@ object Application extends Controller {
 
   // create chart
 
-  def prepareData = {
-    val c = curve.lift.result
-    val dist1 = models.DataPoint.loadData.filter(_.label == 1.0)
-    val dist2 = models.DataPoint.loadData.filter(_.label != 1.0)
-    (c, dist1, dist2)
-  }
-
-  def googleChart = Action {
-    val (c, dist1, dist2) = prepareData
-    Ok(views.html.googleChart("Google Chart")(c)(dist1)(dist2))
-  }
-
-  def highChart = Action {
-    val (c, dist1, dist2) = prepareData
-    Ok(views.html.highChart("High Chart")(c)(dist1)(dist2))
-  }
+//  def prepareData = {
+//    val c = curve.lift.result
+//    val dist1 = models.DataPoint.loadData.filter(_.label == 1.0)
+//    val dist2 = models.DataPoint.loadData.filter(_.label != 1.0)
+//    (c, dist1, dist2)
+//  }
+//
+//  def googleChart = Action {
+//    val (c, dist1, dist2) = prepareData
+//    Ok(views.html.googleChart("Google Chart")(c)(dist1)(dist2))
+//  }
+//
+//  def highChart = Action {
+//    val (c, dist1, dist2) = prepareData
+//    Ok(views.html.highChart("High Chart")(c)(dist1)(dist2))
+//  }
 
   // start and stop EC2 instances cluster
 
